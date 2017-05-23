@@ -1,6 +1,6 @@
 {
   "name": "sand-ui",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Stylished React Components based on Flat UI",
   "main": "lib/sand.js",
   "scripts": {
@@ -55,11 +55,11 @@
     "react-look": "^1.0.1"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/MedanoSoft/sand-ui.git"
+    "type": "git",
+    "url": "https://github.com/MedanoSoft/sand-ui.git"
   },
   "bugs": {
-    "url" : "https://github.com/MedanoSoft/sand-ui/issues",
-    "email" : "project@hostname.com"
+    "url": "https://github.com/MedanoSoft/sand-ui/issues",
+    "email": "project@hostname.com"
   }
 }
