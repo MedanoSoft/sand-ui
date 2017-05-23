@@ -23,12 +23,11 @@ function progressBarGenerator(color) {
 export default StyleSheet.create({
 	wrapper: {
 		backgroundColor: lightGray,
-		width: '50%',
+		width: '100%',
 		height: 12,
 		borderRadius: 32,
 		padding: 0,
-		overflow: 'hidden',
-		margin: '7px 15px'
+		overflow: 'hidden'
 	},
 	default: progressBarGenerator(secondary),
 	inverse: progressBarGenerator(primary),

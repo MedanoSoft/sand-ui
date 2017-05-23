@@ -18,7 +18,6 @@ export default StyleSheet.create({
 	title: {
 		fontSize: 24,
 		fontWeight: 600,
-		lineHeight: 1.042,
 		letterSpacing: 0.35
 	},
 	searchbar: {

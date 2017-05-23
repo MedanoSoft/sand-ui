@@ -7,7 +7,7 @@ function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
   return Object.assign({}, {
     display: 'flex',
     border: `3px solid ${borderColor}`,
-    width: '25%',
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
     height: '2.5rem',
@@ -16,7 +16,6 @@ function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
     fontSize: '1.15rem',
     cursor: 'pointer',
     padding: '0.07rem 0.15rem',
-    margin: '7px 15px',
     color: '#FFF',
     textDecoration: 'none',
     transition: 'opacity 0.25s linear',

@@ -5,12 +5,11 @@ import { StyleSheet } from 'react-look';
 export default StyleSheet.create({
 	wrapper: {
 		backgroundColor: lightGray,
-		width: '50%',
+		width: '100%',
 		height: 12,
 		borderRadius: 32,
 		padding: 0,
 		overflow: 'hidden',
-		margin: '7px 15px',
 		position: 'absolute'
 	},
 	separator: {
@@ -36,8 +35,8 @@ export default StyleSheet.create({
 		width: 18,
 		backgroundColor: secondary,
 		zIndex: 2,
-		marginTop: 4,
-		marginLeft: 9,
+		marginTop: -3,
+		marginLeft: -9,
 		borderRadius: '100%',
 		transition: 'all 0.5s ease',
 		cursor: 'pointer',

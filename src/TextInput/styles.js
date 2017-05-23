@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-look';
 
 function inputGenerator(color, otherStyles={}) {
   return Object.assign({}, {
-    width: '25%',
+    width: '100%',
     height: '2.5rem',
     boxSizing: 'border-box',
     border: `2px solid ${color}`,
@@ -12,10 +12,6 @@ function inputGenerator(color, otherStyles={}) {
     color,
     fontSize: '16px',
     padding: '0.75rem 1rem',
-    marginTop: 7,
-    marginBottom: 7,
-    marginLeft: 15,
-    marginRight: 15,
     boxShadow: 'none',
     transition: 'border 0.15s linear',
     ':focus': {
