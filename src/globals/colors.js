@@ -11,4 +11,4 @@ export const primary = '#34495E',
   yellow = '#F5C700',
   red = '#EF4836',
   blue = '#47D2E9',
-  gray = '#DCDCDC';
+  gray = '#bdc3c7';
