@@ -10,7 +10,7 @@ function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '2.5rem',
+    minHeight: '2.5rem',
     boxSizing: 'border-box',
     borderRadius: '10px',
     fontSize: '1.15rem',

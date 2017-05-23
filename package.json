@@ -53,5 +53,13 @@
   },
   "dependencies": {
     "react-look": "^1.0.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/MedanoSoft/sand-ui.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/MedanoSoft/sand-ui/issues",
+    "email" : "project@hostname.com"
   }
 }

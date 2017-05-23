@@ -125,6 +125,38 @@ Simple styled text input. Available for any text-like input if you describe it a
 
 > Note: You don't need to add `disabled` prop if you declare it as className.
 
+**Example**
+
+```
+import React from 'react';
+import { TextInput } from 'sand-ui';
+
+class InputExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { value: '' };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+  	this.setState({
+  		value: event.target.value
+  	});
+  }
+
+//...
+
+  render() {
+    const { value } = this.state;
+    return (
+      <TextInput placeholder="Jane Doe" className="text" value={value} onChange={this.handleChange} />
+    );
+  }
+}
+```
+
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
 | type      | String    | Type of input, the default is `text`. Suggested: `text`, `number`, `email`, `password`, `date` |
