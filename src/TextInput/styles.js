@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-look';
 function inputGenerator(color, otherStyles={}) {
   return Object.assign({}, {
     width: '100%',
-    height: '2.5rem',
+    height: 'auto',
     boxSizing: 'border-box',
     border: `2px solid ${color}`,
     borderRadius: 10,
