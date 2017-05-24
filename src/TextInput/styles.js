@@ -11,7 +11,7 @@ function inputGenerator(color, otherStyles={}) {
     borderRadius: 10,
     color,
     fontSize: '16px',
-    padding: '0.75rem 1rem',
+    padding: '0.5rem',
     boxShadow: 'none',
     transition: 'border 0.15s linear',
     ':focus': {
