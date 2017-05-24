@@ -59,7 +59,7 @@ module.exports = {
   externals: {
     react: 'react',
     'prop-types': 'prop-types',
-    radium: 'radium',
+    'react-icons': 'react-icons',
     'react-look': 'react-look'
   },
   plugins: plugins

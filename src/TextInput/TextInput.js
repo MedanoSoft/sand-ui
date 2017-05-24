@@ -6,12 +6,17 @@ import look from 'react-look';
 
 import defaultStyles from './styles';
 
+import Icon from '../Icon';
+
 class TextInput extends Component {
 
   render() {
     const { className, disabled } = this.props;
     return (
-      <input {...this.props} className={defaultStyles[className]} disabled={ className === 'disabled' ? true : disabled} />
+      <div className={defaultStyles.wrapper}>
+        {this.props.icon && <Icon name={this.props.icon} appearance="input" color={className} />}
+        <input {...this.props} className={defaultStyles[className]} disabled={ className === 'disabled' ? true : disabled} />
+      </div>
     );
   }
 
@@ -20,7 +25,8 @@ class TextInput extends Component {
 TextInput.propTypes = {
   type: PropTypes.string,
   className: PropTypes.string,
-  disabled: PropTypes.disabled
+  disabled: PropTypes.disabled,
+  icon: PropTypes.string
 };
 
 TextInput.defaultProps = {

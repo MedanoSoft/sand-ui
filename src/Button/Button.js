@@ -7,9 +7,6 @@ import look from 'react-look';
 import defaultStyles from './styles';
 
 class Button extends Component {
-  constructor() {
-    super();
-  }
 
   render() {
     const { link, type } = this.props;
