@@ -1,4 +1,4 @@
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite/no-important';
 
 import * as colors from '../globals/colors';
 
@@ -6,14 +6,10 @@ import * as colors from '../globals/colors';
 export default StyleSheet.create({
 	default: {},
 	input: {
-		left: 8,
-		top: 8
+		display: 'inline',
+		position: 'absolute',
+		width: '2.2em',
+		height: '2.2em'
 	},
-	active: { color: colors.secondary },
-	inactive: { color: colors.gray },
-	success: { color: colors.green },
-	disabled: { color: colors.lightGray },
-	inverse: { color: colors.primary },
-	warning: { color: colors.yellow },
-	danger: { color: colors.red }
+	
 });

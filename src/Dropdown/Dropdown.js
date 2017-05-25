@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import defaultStyles from './styles';
 
-import { css } from 'aphrodite';
+import { css } from 'aphrodite/no-important';
 
 class Dropdown extends Component {
 	constructor() {

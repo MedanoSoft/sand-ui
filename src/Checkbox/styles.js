@@ -1,6 +1,6 @@
 import { gray, font, secondary, white } from '../globals/colors';
 
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite/no-important';
 
 function checkboxGenerator(backgroundColor, otherStyles={}) {
 	return Object.assign({}, {

@@ -1,6 +1,6 @@
 import * as colors from '../globals/colors';
 
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite/no-important';
 
 function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
   borderColor = borderColor || backgroundColor;

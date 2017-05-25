@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { css } from 'aphrodite';
+import { css } from 'aphrodite/no-important';
 
 import defaultStyles from './styles';
 
@@ -18,11 +18,11 @@ class TextInput extends Component {
     return icon;
   }
   render() {
-    const { className } = this.props;
+    const { className, disabled } = this.props;
     return (
-      <div className={css(defaultStyles.wrapper)}>
+      <div className={css(defaultStyles[`wrapper${className.charAt(0).toUpperCase() + className.slice(1)}`])}>
         {this.props.icon && this.setInputIcon()}
-        <input {...this.props} className={css(defaultStyles[className])} disabled={ className === 'disabled' ? true : disabled} />
+        <input {...this.props} className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)} disabled={ className === 'disabled' ? true : disabled} />
       </div>
     );
   }

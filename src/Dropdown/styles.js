@@ -1,6 +1,6 @@
 import { secondary, secondaryDarker, gray, lightGray, white } from '../globals/colors';
 
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite/no-important';
 
 export default StyleSheet.create({
 	caption: {

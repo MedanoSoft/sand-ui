@@ -60,6 +60,7 @@ module.exports = {
     react: 'react',
     'prop-types': 'prop-types',
     'aphrodite': 'aphrodite',
+    'aphrodite/no-important': 'aphrodite/no-important',
     'react-look': 'react-look'
   },
   plugins: plugins

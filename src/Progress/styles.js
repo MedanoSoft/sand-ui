@@ -8,7 +8,7 @@ import {
 	blue
 } from '../globals/colors';
 
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite/no-important';
 
 function progressBarGenerator(color) {
 	return {
