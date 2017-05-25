@@ -1,8 +1,6 @@
 import { gray, font, secondary, white } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
-
-
+import { StyleSheet } from 'aphrodite';
 
 function checkboxGenerator(backgroundColor, otherStyles={}) {
 	return Object.assign({}, {
@@ -17,6 +15,7 @@ function checkboxGenerator(backgroundColor, otherStyles={}) {
 		transition: 'background-color 0.25s linear'
 	}, otherStyles);
 }
+
 export default StyleSheet.create({
 	wrapper: {
 		margin: '7px 15px',

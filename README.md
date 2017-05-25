@@ -1,4 +1,8 @@
 # Sand-UI
+[![npm][npm-image]][npm-url]
+
+[npm-image]: https://img.shields.io/npm/v/react-icons.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/sand-ui
 
 UI library for [React](https://facebook.github.io/react) based on [Flat UI](http://designmodo.github.io/Flat-UI/) style.
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import defaultStyles from './styles';
 
-import look from 'react-look';
-
 class Box extends Component {
   render() {
     return (
@@ -14,4 +12,4 @@ class Box extends Component {
   }
 }
 
-export default look(Box);
+export default Box;

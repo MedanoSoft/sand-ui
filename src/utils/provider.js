@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 
-import { LookRoot, Presets } from 'react-look';
-
-
 class UIProvider extends Component {
   render() {
     return (
-      <LookRoot {...this.props} config={Presets['react-dom']}>
+      <div>
         {this.props.children}
-      </LookRoot>
+      </div>
     )
   }
 }
+
 
 export default UIProvider;

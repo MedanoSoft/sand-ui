@@ -33,7 +33,7 @@ module.exports = {
         exclude: /node_modules/,
         query: {
           presets: [ 'es2015', 'react' ],
-          plugins: [ 'transform-object-rest-spread' ]
+          plugins: [ 'transform-object-rest-spread', 'transform-decorators-legacy' ]
         }
       },
       {
@@ -59,7 +59,7 @@ module.exports = {
   externals: {
     react: 'react',
     'prop-types': 'prop-types',
-    radium: 'radium',
+    'aphrodite': 'aphrodite',
     'react-look': 'react-look'
   },
   plugins: plugins

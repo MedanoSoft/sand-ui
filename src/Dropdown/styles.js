@@ -1,6 +1,6 @@
 import { secondary, secondaryDarker, gray, lightGray, white } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
 	caption: {

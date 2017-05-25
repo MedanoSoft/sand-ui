@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import defaultStyles from './styles';
 
@@ -15,16 +15,16 @@ class Navbar extends Component {
 	setSearchbar() {
 		const { placeholder } = this.props;
 		return (
-			<form className={defaultStyles.searchbar} onSubmit={(e) => {e.preventDefault; this.props.onSearch(this.searchInput.value);}}>
-				<input className={defaultStyles.searchInput} type="search"  placeholder={placeholder} ref={(input) => this.seatchInput = input} />
+			<form className={css(defaultStyles.searchbar)} onSubmit={(e) => {e.preventDefault; this.props.onSearch(this.searchInput.value);}}>
+				<input className={css(defaultStyles.searchInput)} type="search"  placeholder={placeholder} ref={(input) => this.seatchInput = input} />
 			</form>
 		);
 	}
 	render() {
 		const { title, middle, right } = this.props;
 		return (
-			<nav className={defaultStyles.bar}>
-				<header className={defaultStyles.title}>{title}</header>
+			<nav className={css(defaultStyles.bar)}>
+				<header className={css(defaultStyles.title)}>{title}</header>
 				{middle && (<div>{middle}</div>)}
 				{this.props.searchbar && this.setSearchbar()}
 				{right && (<div>{right}</div>)}
@@ -38,7 +38,7 @@ Navbar.propTypes = {
 	middle: PropTypes.node,
 	right: PropTypes.node,
 	searchbar: PropTypes.bool,
-	onSearch: PropTypes.function,
+	onSearch: PropTypes.func,
 	placeholder: PropTypes.string
 }
 
@@ -48,4 +48,4 @@ Navbar.defaultProps = {
 	placeholder: 'Search'
 }
 
-export default look(Navbar);
+export default Navbar;

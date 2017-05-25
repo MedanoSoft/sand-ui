@@ -1,6 +1,6 @@
 import { lightGray, gray, secondary, secondaryDarker } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
 	wrapper: {

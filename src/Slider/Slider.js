@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import defaultStyles from './styles';
 
@@ -20,7 +20,7 @@ class Slider extends Component {
 		let arr = [];
 		for(let i = 1; i < sections; i++) {
 			arr.push(
-				(<div key={i} className={defaultStyles.separator} style={{left: `${sep * i}%`}}></div>)
+				(<div key={i} className={css(defaultStyles.separator)} style={{left: `${sep * i}%`}}></div>)
 			);
 		}
 		return arr;
@@ -33,10 +33,10 @@ class Slider extends Component {
 		const sep = 100 / sections;
 
 		return (
-			<div className={defaultStyles.container}>
-				<div className={defaultStyles.circle} style={{ left: `${(sep * active) / 2}%` }}></div>
-				<div className={defaultStyles.wrapper}>
-					<div className={defaultStyles.bar} style={{width: `${sep * active}%`}}></div>
+			<div className={css(defaultStyles.container)}>
+				<div className={css(defaultStyles.circle)} style={{left: `${(sep * active) / 2}%`}}></div>
+				<div className={css(defaultStyles.wrapper)}>
+					<div className={css(defaultStyles.bar)} style={{width: `${sep * active}%`}}></div>
 					{this.setSeparators(sep)}
 				</div>
 			</div>
@@ -52,4 +52,4 @@ Slider.defaultProps = {
 	sections: 1
 }
 
-export default look(Slider);
+export default Slider;

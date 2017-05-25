@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import defaultStyles from './styles';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 class Dropdown extends Component {
 	constructor() {
@@ -21,10 +21,10 @@ class Dropdown extends Component {
 	setList() {
 		const { list } = this.props;
 		return list.map((node, i) => (
-			<li key={i} className={defaultStyles.item}>
+			<li key={i} className={css(defaultStyles.item)}>
 				{(typeof node === typeof {}) ?
-					(<a {...node.props} className={defaultStyles.text} href={node.link || '#'}>{node.name}</a>) :
-					(<span key={i} className={defaultStyles.text}>{node}</span>)
+					(<a {...node.props} className={css(defaultStyles.text)} href={node.link || '#'}>{node.name}</a>) :
+					(<span key={i} className={css(defaultStyles.text)}>{node}</span>)
 				}
 			</li>
 			));
@@ -45,9 +45,9 @@ class Dropdown extends Component {
     delete(passedProps.label);
     delete(passedProps.list);
     return (
-    	<div className={defaultStyles.wrapper}>
-    	<button className={defaultStyles.caption} onClick={this.handleClick}>{label}</button>
-      <ul {...passedProps} className={(toggleList) ? defaultStyles.listVisible : defaultStyles.listInvisible}>
+    	<div className={css(defaultStyles.wrapper)}>
+    	<button className={css(defaultStyles.caption)} onClick={this.handleClick}>{label}</button>
+      <ul {...passedProps} className={css((toggleList) ? defaultStyles.listVisible : defaultStyles.listInvisible)}>
         {this.setList()}
       </ul>
       </div>
@@ -64,4 +64,4 @@ Dropdown.defaultProps = {
 	list: []
 }
 
-export default look(Dropdown);
+export default Dropdown;

@@ -1,6 +1,6 @@
 import { gray, secondary, font, green, red } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 function inputGenerator(color, otherStyles={}) {
   return Object.assign({}, {
@@ -44,5 +44,9 @@ export default StyleSheet.create({
   error: inputGenerator(red),
   disabled: inputGenerator(gray, {
     backgroundColor: 'rgba(240, 240, 240, 0.7)'
-  })
+  }),
+  wrapper: {
+    width: '100%',
+    height: 'auto'
+  }
 });

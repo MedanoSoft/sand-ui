@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import defaultStyles from './styles';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import uidCreator from '../utils/uid';
 
@@ -70,17 +70,23 @@ class Tags extends Component {
 	render() {
 		const { values } = this.state;
 		const uid = uidCreator();
+		const passedProps = {
+      ...this.props
+    };
+    delete(passedProps.onUpdate);
+    delete(passedProps.values);
+    delete(passedProps.list);
 
 		return (
-			<section {...this.props} className={defaultStyles.wrapper}>
+			<section {...passedProps} className={css(defaultStyles.wrapper)}>
 				{this.props.list && this.setDatalist(uid)}
 				{values.map((tag, i) => (
-					<span key={i} className={defaultStyles.label} onClick={() => this.deleteTag(i)}>{tag}</span>
+					<span key={i} className={css(defaultStyles.label)} onClick={() => this.deleteTag(i)}>{tag}</span>
 				))}
-				<form onSubmit={this.handleSubmit} className={defaultStyles.form}>
+				<form onSubmit={this.handleSubmit} className={css(defaultStyles.form)}>
 					<input
 						type="text"
-						className={defaultStyles.input}
+						className={css(defaultStyles.input)}
 						list={this.props.list ? uid : undefined}
 						ref={(input) => this.input = input} />
 				</form>
@@ -91,11 +97,12 @@ class Tags extends Component {
 
 Tags.propTypes = {
 	values: PropTypes.array,
-	list: PropTypes.array
+	list: PropTypes.array,
+	onUpdate: PropTypes.func
 };
 
 Tags.defaultProps = {
 	values: []
 };
 
-export default look(Tags);
+export default Tags;
