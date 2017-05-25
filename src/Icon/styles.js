@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 import * as colors from '../globals/colors';
 

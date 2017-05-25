@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import defaultStyles from './styles';
 
@@ -42,9 +42,9 @@ class Checkbox extends Component {
 		const { name } = this.props;
 
 		return (
-			<label htmlFor={name} className={defaultStyles.wrapper}>
-				<input {...this.props} className={this.setStyles()} checked={this.state.checked} id={name} type="checkbox" onChange={this.handleCheckbox} />
-				<span className={defaultStyles.text}>{name}</span>
+			<label htmlFor={name} className={css(defaultStyles.wrapper)}>
+				<input {...this.props} className={css(this.setStyles())} checked={this.state.checked} id={name} type="checkbox" onChange={this.handleCheckbox} />
+				<span className={css(defaultStyles.text)}>{name}</span>
 			</label>
 		);
 	}
@@ -53,7 +53,7 @@ class Checkbox extends Component {
 Checkbox.propTypes = {
 	name: PropTypes.string.isRequired,
 	checked: PropTypes.bool,
-	onChange: PropTypes.function
+	onChange: PropTypes.func
 };
 
 Checkbox.defaultProps = {
@@ -61,4 +61,4 @@ Checkbox.defaultProps = {
 	checked: false
 }
 
-export default look(Checkbox);
+export default Checkbox;

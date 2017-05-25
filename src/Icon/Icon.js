@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import icons from './icons';
 
@@ -12,22 +12,22 @@ class Icon extends Component {
 	constructor(props) {
 		super(props);
 
-		this.getPath = this.getPath.bind(this);
+		this.getSVG = this.getSVG.bind(this);
 	}
 
-	getPath(name) {
-		const path = icons[name];
-		console.log(path);
-		return path;
+	getSVG(name) {
+		const svg = icons[name];
+		return svg;
 	}
 
 	render() {
 		const { appearance, color, name } = this.props;
-		
+		const svg = this.getSVG(name);
+
 		return (
-			<svg className={defaultStyles[appearance]} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-labelledby="title">
+			<svg className={css(defaultStyles[appearance])} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-labelledby="title">
 				<title>{name}</title>
-		    <path d={this.getPath(name)}></path>
+		    <path horizAdvX={svg.properties['horiz-adv-x']} d={svg.source}></path>
 		  </svg>
 		);
 	}
@@ -45,4 +45,4 @@ Icon.defaultProps = {
 }
 
 
-export default look(Icon);
+export default Icon;

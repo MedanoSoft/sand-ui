@@ -1,6 +1,6 @@
 import { font, white } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 export default StyleSheet.create({
   fontSize: 16,

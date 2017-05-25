@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import defaultStyles from './styles';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 class Select extends Component {
 	constructor() {
@@ -15,7 +15,7 @@ class Select extends Component {
 
 	setOptions() {
 		return this.props.options.map((node, i) => (
-			<option key={i} className={defaultStyles.item} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
+			<option key={i} className={css(defaultStyles.item)} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
 		));
 	}
 
@@ -27,7 +27,7 @@ class Select extends Component {
     delete(passedProps.options);
 
     return (
-    	<select {...passedProps} name={name} className={defaultStyles.caption}>
+    	<select {...passedProps} name={name} className={css(defaultStyles.caption)}>
     		{this.setOptions()}
     	</select>
     );
@@ -43,4 +43,4 @@ Select.defaultProps = {
 	options: []
 }
 
-export default look(Select);
+export default Select;

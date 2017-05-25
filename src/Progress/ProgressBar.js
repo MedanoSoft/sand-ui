@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import defaultStyles from './styles';
 
@@ -11,8 +11,8 @@ class ProgressBar extends Component {
 	render() {
 		const { percent, type } = this.props;
 		return (
-			<div className={defaultStyles.wrapper}>
-				<div className={defaultStyles[type]} style={{width: `${percent}%`}}></div>
+			<div className={css(defaultStyles.wrapper)}>
+				<div className={css(defaultStyles[type])} style={{width: `${percent}%`}}></div>
 			</div>
 		);
 	}
@@ -29,4 +29,4 @@ ProgressBar.defaultProps = {
 	type: 'default'
 };
 
-export default look(ProgressBar);
+export default ProgressBar;

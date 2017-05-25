@@ -8,7 +8,7 @@ import {
 	blue
 } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 function progressBarGenerator(color) {
 	return {

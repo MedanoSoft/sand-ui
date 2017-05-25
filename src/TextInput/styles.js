@@ -1,6 +1,6 @@
 import { gray, secondary, font, green, red } from '../globals/colors';
 
-import { StyleSheet } from 'react-look';
+import { StyleSheet } from 'aphrodite';
 
 function inputGenerator(color, otherStyles={}) {
   return Object.assign({}, {

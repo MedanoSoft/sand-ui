@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import look from 'react-look';
+import { css } from 'aphrodite';
 
 import defaultStyles from './styles';
 
@@ -17,13 +17,13 @@ class Button extends Component {
     
     if(link) {
       return (
-        <a {...passedProps} href={link} className={defaultStyles[type]} role={'button'}>
+        <a {...passedProps} href={link} className={css(defaultStyles[type])} role={'button'}>
           {this.props.children}
         </a>
       );
     }
     return (
-      <button {...this.props} className={defaultStyles[type]}>
+      <button {...this.props} className={css(defaultStyles[type])}>
         {this.props.children}
       </button>
     );
@@ -40,4 +40,4 @@ Button.defaultProps = {
   type: 'active'
 };
 
-export default look(Button);
+export default Button;
