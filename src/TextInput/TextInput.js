@@ -9,9 +9,9 @@ import defaultStyles from './styles';
 class TextInput extends Component {
 
   render() {
-    const { className, disabled } = this.props;
+    const { className } = this.props;
     return (
-      <input {...this.props} className={defaultStyles[className]} disabled={ className === 'disabled' ? true : disabled} />
+      <input {...this.props} className={defaultStyles[className]}  />
     );
   }
 
@@ -19,8 +19,7 @@ class TextInput extends Component {
 
 TextInput.propTypes = {
   type: PropTypes.string,
-  className: PropTypes.string,
-  disabled: PropTypes.disabled
+  className: PropTypes.string
 };
 
 TextInput.defaultProps = {
