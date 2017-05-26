@@ -7,7 +7,7 @@
 UI library for [React](https://facebook.github.io/react) based on [Flat UI](http://designmodo.github.io/Flat-UI/) style.
 
 
-> Note: In order to change styles from any component, use the `style` prop. `className` prop is overwritten so just use it like the documentation below describes to. 
+> Note: In order to change styles from any component, use the `style` prop. `className` prop is overwritten so just use it like the documentation below describes to.
 
 
 ## Installation
@@ -93,18 +93,163 @@ class ButtonExample extends React.Component {
 
 ### Checkbox
 
+Checkbox and label, all in one.
+
+**Example**
+
+```
+import React from 'react';
+import { Checkbox } from 'sand-ui';
+
+class CheckboxExample extends React.Component {
+
+//...
+
+  render() {
+    return (
+      <form>
+        <Checkbox checked name="Eggs" />
+        <Checkbox name="Chicken" />
+        <Checkbox name="Tomatoes" />
+        <Checkbox checked name="Milk" />
+        <Checkbox checked name="Checkout to-do list" />
+      </form>
+    )
+  }
+}
+```
+
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
 | name      | String    | Checkbox's label        |
 | checked   | Boolean   | Works active or disabled |
-| onChange  | Function  | Called when chackbox change it's state  |
+| onChange  | Function  | Called when checkbox change it's state  |
 | disabled  | Boolean   | Disable checkbox interaction |
 
 
 ### Dropdown
 
+List of items like a list-menu, Dropdown is not the same as Select component. Pass an array of items to list prop, it needs to be a list of strings, elements or objects like:
+
+```
+{
+  name: 'One', // (string) item name
+  link: 'https://github.com/MedanoSoft/sand-ui', // (string) url to link this item
+  props: {
+    // Props for this item
+  }
+}
+```
+
+**Example**
+
+```
+import React from 'react';
+import { Dropdown } from 'sand-ui';
+
+class DropdownExample extends React.Component {
+  constructor() {
+    super();
+
+    this.list = [
+      'Twitter',
+      'LinkedIn',
+      (<br />),
+      {
+        name: 'GitHub',
+        link: 'https://github.com/MedanoSoft',
+        props: {
+          onClick: () => console.log('GitHub here it goes!')
+        }
+      }
+    ]
+  }
+//...
+
+  render() {
+    return (
+        <Dropdown label="Social Media" list={this.list} />
+    )
+  }
+}
+```
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| label     | String    | Label for flag button   |
+| list      | Array     | List of items to show   |
+
+
+### Icon
+
+This icon component uses SVG icons from [Linearicons](https://linearicons.com/free), you can use any of those icons passing the icon name without the `lnr-` prefix.
+
+**Example**
+
+```
+import React from 'react';
+import { Icon } from 'sand-ui';
+
+class IconExample extends React.Component {
+
+//...
+
+  render() {
+    return (
+        <Icon name="bug" color="#00A86B" />
+    )
+  }
+}
+```
+
+| Props     | Type      | Description                |
+| --------- | --------- | -----------------------    |
+| name      | String    | Icon name from Linearicons |
+| color     | String    | Color of the icon, you can use an hex color or use any of this words: `active`, `inactive`, `success`, `warning`, `danger`, `disabled`, `inverse`, for Flat UI colorscheme |
 
 ### Navbar
+
+Simple, horizontal nav component with searchbar.
+
+**Example**
+
+```
+import React from 'react';
+import { Navbar } from 'sand-ui';
+
+class NavbarExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    //...
+    this.handleSearchbar = this.handleSearchbar.bind(this);
+  }
+
+//...
+  handleSearchbar(val) {
+    console.log(`You are looking for ${val}`);
+  }
+  
+  render() {
+    return (
+        <Navbar
+          title="SandUI"
+          right={(<span>&hearts;</span>)}
+          searchbar
+          onSearch={this.handleSearchbar} />
+    )
+  }
+}
+```
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| title     | node      | Navbar header           |
+| middle    | node      | Element at the middle   |
+| right     | node      | Element at the right    |
+| searchbar | boolean   | Add a searchbar on the nav (default: `false`) |
+| onSearch  | function  | Called when user puts a line break (User hits Intro) |
+| style     | object    | Custom styles to add    |
 
 
 ### Progress Bar
@@ -165,6 +310,7 @@ class InputExample extends React.Component {
 | --------- | --------- | ----------------------- |
 | type      | String    | Type of input, the default is `text`. Suggested: `text`, `number`, `email`, `password`, `date` |
 | className | String    | Change input color depending on type. Available: `active` (default), `success`, `error`, `disabled` |
+| icon      | String or Element | Insert an icon at the left, or the element you desire to |
 | disabled  | Boolean   | Disable input interaction |
 | style     | Object    | Custom styles to add    |
 

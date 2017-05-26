@@ -9,5 +9,6 @@ module.exports = {
   Navbar: require('./Navbar').default,
   Progress: require('./Progress').default,
   Slider: require('./Slider').default,
-  Checkbox: require('./Checkbox').default
+  Checkbox: require('./Checkbox').default,
+  Icon: require('./Icon').default
 };

@@ -56,7 +56,7 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-	list: PropTypes.array,
+	list: PropTypes.array.isRequired,
 	label: PropTypes.string
 }
 
