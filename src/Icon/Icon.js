@@ -56,11 +56,11 @@ class Icon extends Component {
 	render() {
 		const { appearance, name } = this.props;
 		const svg = this.getSVG(name);
-
+		const color = this.setColor();
 		return (
-			<svg className={css(defaultStyles[appearance])} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" aria-labelledby="title">
+			<svg className={css(defaultStyles[appearance])} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-labelledby="title">
 				<title>{name}</title>
-		    <path fill={this.setColor()} d={svg.source}></path>
+				{svg.map((path, i) => (<path key={i} fill={color} d={path} />))}
 		  </svg>
 		);
 	}

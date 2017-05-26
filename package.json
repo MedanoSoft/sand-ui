@@ -47,9 +47,7 @@
     }
   },
   "dependencies": {
-    "aphrodite": "^1.2.1",
-    "react-icons": "^2.2.5",
-    "react-look": "^1.0.1"
+    "aphrodite": "^1.2.1"
   },
   "repository": {
     "type": "git",

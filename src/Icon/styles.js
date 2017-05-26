@@ -8,8 +8,10 @@ export default StyleSheet.create({
 	input: {
 		display: 'inline',
 		position: 'absolute',
-		width: '2.2em',
-		height: '2.2em'
+		width: '1.5em',
+		height: '1.5em',
+		marginTop: '0.5em',
+		marginLeft: '0.5em'
 	},
 	
 });

@@ -20,7 +20,7 @@ class TextInput extends Component {
   render() {
     const { className, disabled } = this.props;
     return (
-      <div className={css(defaultStyles[`wrapper${className.charAt(0).toUpperCase() + className.slice(1)}`])}>
+      <div className={css(defaultStyles.wrapper)}>
         {this.props.icon && this.setInputIcon()}
         <input {...this.props} className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)} disabled={ className === 'disabled' ? true : disabled} />
       </div>
