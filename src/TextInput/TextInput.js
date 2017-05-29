@@ -19,7 +19,7 @@ class TextInput extends Component {
         </div>
       );
     }
-    return icon;
+    return React.cloneElement(icon, { appearance: 'input' });
   }
   render() {
     const { className, disabled } = this.props;
