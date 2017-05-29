@@ -13,7 +13,6 @@ import {
 	secondary,
 	gray,
 	green,
-	lightGray,
 	yellow,
 	red
 } from '../globals/colors';
@@ -28,7 +27,9 @@ class Icon extends Component {
 
 	getSVG(name) {
 		const svg = icons[name];
-		return svg;
+		if(svg)
+			return svg;
+		return icons['warning'];
 	}
 
 	setColor() {
@@ -41,7 +42,7 @@ class Icon extends Component {
 			case 'success':
 				return green;
 			case 'disabled':
-				return lightGray;
+				return gray;
 			case 'inverse':
 				return primary;
 			case 'warning':
@@ -57,8 +58,13 @@ class Icon extends Component {
 		const { appearance, name } = this.props;
 		const svg = this.getSVG(name);
 		const color = this.setColor();
+		const passedProps = {
+      ...this.props
+    };
+    delete(passedProps.appearance);
+    delete(passedProps.color);
 		return (
-			<svg className={css(defaultStyles[appearance])} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-labelledby="title">
+			<svg {...passedProps} className={css(defaultStyles[appearance])} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-labelledby="title">
 				<title>{name}</title>
 				{svg.map((path, i) => (<path key={i} fill={color} d={path} />))}
 		  </svg>

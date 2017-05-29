@@ -46,7 +46,16 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(240, 240, 240, 0.7)'
   }),
   leftIcon: {
-    textIndent: '2.2em'
+    textIndent: '1.8em'
+  },
+  iconWrapper: {
+    display: 'inline',
+    width: '2em',
+    height: '2em',
+    position: 'absolute',
+    marginLeft: '0.75em'
+  },
+  icon: {
   },
   wrapper: {
     width: '100%',

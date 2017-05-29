@@ -6,7 +6,7 @@ import { css } from 'aphrodite/no-important';
 
 import defaultStyles from './styles';
 
-class Checkbox extends Component {
+class Radio extends Component {
 	constructor(props) {
 		super(props);
 
@@ -14,7 +14,7 @@ class Checkbox extends Component {
 			checked: this.props.checked
 		};
 
-		this.handleCheckbox = this.handleCheckbox.bind(this);
+		this.handleRadio = this.handleRadio.bind(this);
 		this.setStyles = this.setStyles.bind(this);
 	}
 
@@ -30,35 +30,35 @@ class Checkbox extends Component {
 		}
 	}
 
-	handleCheckbox(event) {
-		this.setState({
-			checked: !!event.target.checked
-		});
+	handleRadio(event) {
 		if(this.props.onChange)
-			this.props.onChange(this.state.checked);
+			this.props.onChange(event.target.value);
 	}
 
 	render() {
-		const { name } = this.props;
+		const { name, value, label } = this.props;
 
 		return (
-			<label htmlFor={name} className={css(defaultStyles.wrapper)}>
-				<input {...this.props} className={css(this.setStyles())} checked={this.state.checked} id={name.replace(' ', '-')} type="checkbox" onChange={this.handleCheckbox} />
-				<span className={css(defaultStyles.text)}>{name}</span>
+			<label htmlFor={value} className={css(defaultStyles.wrapper)}>
+				<input {...this.props} className={css(this.setStyles())} checked={this.state.checked} type="radio" id={value} onChange={this.handleRadio} />
+				<span className={css(defaultStyles.text)}>{label}</span>
 			</label>
 		);
 	}
 }
 
-Checkbox.propTypes = {
+Radio.propTypes = {
+	value: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
+	label: PropTypes.string,
 	checked: PropTypes.bool,
 	onChange: PropTypes.func
 };
 
-Checkbox.defaultProps = {
-	value: 'on',
+Radio.defaultProps = {
+	name: 'defaultRadio',
+	label: '',
 	checked: false
 }
 
-export default Checkbox;
+export default Radio;

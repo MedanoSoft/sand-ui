@@ -10,5 +10,6 @@ module.exports = {
   Progress: require('./Progress').default,
   Slider: require('./Slider').default,
   Checkbox: require('./Checkbox').default,
-  Icon: require('./Icon').default
+  Icon: require('./Icon').default,
+  Radio: require('./Radio').default
 };

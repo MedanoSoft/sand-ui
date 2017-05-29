@@ -11,18 +11,26 @@ import Icon from '../Icon';
 class TextInput extends Component {
 
   setInputIcon() {
-    const { icon, className } = this.props;
+    const { icon, style, className } = this.props;
     if(typeof icon === typeof '') {
-      return (<Icon name={this.props.icon} appearance="input" color={className} />);
+      return (
+        <div className={css(defaultStyles.iconWrapper)}>
+          <Icon name={this.props.icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} appearance="input" color={ className === 'active' ? 'inactive' : className } />
+        </div>
+      );
     }
     return icon;
   }
   render() {
     const { className, disabled } = this.props;
+    const passedProps = {
+      ...this.props
+    };
+    delete(passedProps.icon);
     return (
       <div className={css(defaultStyles.wrapper)}>
         {this.props.icon && this.setInputIcon()}
-        <input {...this.props} className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)} disabled={ className === 'disabled' ? true : disabled} />
+        <input {...passedProps} className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)} disabled={ className === 'disabled' ? true : disabled} />
       </div>
     );
   }
