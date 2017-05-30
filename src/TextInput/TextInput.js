@@ -14,15 +14,13 @@ class TextInput extends Component {
     const { icon, style, className } = this.props;
     if(typeof icon === typeof '') {
       return (
-        <div className={css(defaultStyles.iconWrapper)}>
           <Icon name={this.props.icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} appearance="input" color={ className === 'active' ? 'inactive' : className } />
-        </div>
       );
     }
     return React.cloneElement(icon, { appearance: 'input' });
   }
   render() {
-    const { className, disabled } = this.props;
+    const { className, disabled, style } = this.props;
     const passedProps = {
       ...this.props
     };
@@ -30,7 +28,12 @@ class TextInput extends Component {
     return (
       <div className={css(defaultStyles.wrapper)}>
         {this.props.icon && this.setInputIcon()}
-        <input {...passedProps} className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)} disabled={ className === 'disabled' ? true : disabled} />
+        <input
+          {...passedProps}
+          className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)}
+          disabled={ className === 'disabled' ? true : disabled}
+          style={style && style.fontSize && !style.textIndent && { ...style, textIndent: style.fontSize, paddingLeft: '0.8rem' }}
+        />
       </div>
     );
   }

@@ -9,11 +9,22 @@ function radioGenerator(backgroundColor, otherStyles={}) {
 		width: 20,
 		height: 20,
 		borderRadius: '100%',
-		border: `5px solid ${backgroundColor}`,
+		border: `3px solid ${backgroundColor}`,
 		cursor: 'pointer',
-		backgroundColor,
+		background: 'none',
 		fontSize: 16,
-		transition: 'background-color 0.25s linear'
+		transition: 'background-color 0.25s linear',
+		':after': {
+			opacity: 0,
+			position: 'absolute',
+			content: '""',
+			width: 5,
+			height: 5,
+			margin: '6px',
+			backgroundColor,
+			border: `1px solid ${backgroundColor}`,
+			borderRadius: '100%'
+		}
 	}, otherStyles);
 }
 
@@ -25,10 +36,13 @@ export default StyleSheet.create({
 		minHeight: 30,
 		display: 'block'
 	},
-	active: radioGenerator(secondary, {
-		':after': {
-			position: 'absolute',
-			content: '""'
+	active: radioGenerator(secondary),
+	inactive: radioGenerator(gray, {
+		':hover': {
+			backgroundColor: secondary,
+			':after': {
+				opacity: 1
+			}
 		}
 	}),
 	inactive: radioGenerator(gray),
@@ -37,10 +51,6 @@ export default StyleSheet.create({
 	}),
 	disabledChecked: radioGenerator(gray, {
 		cursor: 'default',
-		':after': {
-			position: 'absolute',
-			content: '""'
-		}
 	}),
 	text: {
 		position: 'relative',
