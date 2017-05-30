@@ -46,7 +46,7 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(240, 240, 240, 0.7)'
   }),
   leftIcon: {
-    textIndent: '7%'
+    textIndent: '2em'
   },
   wrapper: {
     width: '100%',

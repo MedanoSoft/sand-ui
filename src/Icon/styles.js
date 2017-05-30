@@ -7,7 +7,7 @@ export default StyleSheet.create({
 	default: {},
 	input: {
 		marginLeft: '0.7rem',
-		width: '5%',
+		width: '1.5em',
 		display: 'inline',
 		position: 'absolute'
 	},
