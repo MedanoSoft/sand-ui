@@ -29,30 +29,6 @@ import { Button } from 'sand-ui';
 
 ```
 
-### Provider
-
-First of all, wrap your main application component inside `UIProvider` from `sand-ui`. This is necessary.
-
-A quick example for you:
-
-```
-import React from 'react';
-import { render } from 'react-dom';
-import { UIProvider } from 'sand-ui';
-
-import App from './src/to/App';
-
-render(
-	<UIProvider>
-		<App />
-	</UIProvider>,
-	document.getElementById('root')
-);
-
-```
-
-And you're ready!
-
 
 ## Components
 

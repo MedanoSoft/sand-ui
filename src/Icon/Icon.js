@@ -49,6 +49,8 @@ class Icon extends Component {
 				return yellow;
 			case 'danger':
 				return red;
+			case 'error':
+				return red;
 			default:
 				return color;
 		}
