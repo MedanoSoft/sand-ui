@@ -1,4 +1,4 @@
-# Changelogs
+# Changelog
 
 
 ## 0.1.13
