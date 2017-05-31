@@ -20,7 +20,7 @@ class Slider extends Component {
 		let arr = [];
 		for(let i = 1; i < sections; i++) {
 			arr.push(
-				(<div key={i} className={css(defaultStyles.separator)} style={{left: `${sep * i}%`}}></div>)
+				(<div key={i} className={css(defaultStyles.separator)} style={{left: `${(sep * i)}%`}}></div>)
 			);
 		}
 		return arr;
@@ -34,15 +34,23 @@ class Slider extends Component {
 
 		return (
 			<div className={css(defaultStyles.container)}>
-				<div className={css(defaultStyles.circle)} style={{left: `${(sep * active) / 2}%`}}></div>
+				<input {...this.props} step={sections} type="range" className={css(defaultStyles.bar)} />
+				{this.setSeparators(sep)}
+			</div>
+		);
+	}
+}
+
+/*
+
+			<div className={css(defaultStyles.container)}>
+				<div className={css(defaultStyles.circle)} style={{left: `${(sep * active) / 2}%`}} draggable={true}></div>
 				<div className={css(defaultStyles.wrapper)}>
 					<div className={css(defaultStyles.bar)} style={{width: `${sep * active}%`}}></div>
 					{this.setSeparators(sep)}
 				</div>
 			</div>
-		);
-	}
-}
+*/
 
 Slider.propTypes = {
 	sections: PropTypes.number

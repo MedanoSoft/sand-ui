@@ -19,36 +19,42 @@ export default StyleSheet.create({
 		backgroundColor: gray.default,
 		position: 'relative',
 		display: 'inline-block',
-		top: -5
+		top: -5,
+		zIndex: 2,
+		marginLeft: -2
 	},
 	bar: {
-		backgroundColor: secondary.default,
+		appearance: 'none',
+		borderRadius: 32,
+		backgroundColor: lightGray.default,
 		margin: 0,
 		position: 'absolute',
-		height: '100%',
-		zIndex: 1,
-		transition: 'width 0.5s ease'
-	},
-	circle: {
-		position: 'absolute',
-		height: 18,
-		width: 18,
-		backgroundColor: secondary.default,
-		zIndex: 2,
-		marginTop: -3,
-		marginLeft: -9,
-		borderRadius: '100%',
-		transition: 'all 0.5s ease',
-		cursor: 'pointer',
-		':hover': {
-			backgroundColor: secondary.darker
+		height: 12,
+		width: '100%',
+		transition: 'width 0.5s ease',
+		':focus': {
+			outline: 'none'
 		},
-		':active': {
-			backgroundColor: secondary.darker
+		'::-webkit-slider-thumb': {
+			appearance: 'none',
+			zIndex: 30,
+			height: 18,
+			width: 18,
+			backgroundColor: secondary.default,
+			borderRadius: '100%',
+			transition: 'all 0.5s ease',
+			cursor: 'pointer',
+			':hover': {
+				backgroundColor: secondary.darker
+			},
+			':active': {
+				backgroundColor: secondary.darker
+			}
 		}
 	},
 	container: {
 		display: 'block',
-		height: 25
+		height: 25,
+		width: '100%'
 	}
 });
