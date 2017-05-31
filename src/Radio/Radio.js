@@ -10,16 +10,13 @@ class Radio extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			checked: this.props.checked
-		};
-
 		this.handleRadio = this.handleRadio.bind(this);
 		this.setStyles = this.setStyles.bind(this);
 	}
 
+
 	setStyles() {
-		if(this.state.checked) {
+		if(this.props.checked) {
 			if(this.props.disabled)
 				return defaultStyles.disabledChecked;
 			return defaultStyles.active;
@@ -36,12 +33,15 @@ class Radio extends Component {
 	}
 
 	render() {
-		const { name, value, label } = this.props;
-
+		const { name, value } = this.props;
+		const passedProps = {
+			...this.props
+		};
+		delete(passedProps.children);
 		return (
 			<label htmlFor={value} className={css(defaultStyles.wrapper)}>
-				<input {...this.props} className={css(this.setStyles())} checked={this.state.checked} type="radio" id={value} onChange={this.handleRadio} />
-				<span className={css(defaultStyles.text)}>{label}</span>
+				<input {...passedProps} className={css(this.setStyles())} type="radio" id={value} onChange={this.handleRadio} />
+				<span className={css(defaultStyles.text)}>{this.props.children}</span>
 			</label>
 		);
 	}
@@ -50,14 +50,12 @@ class Radio extends Component {
 Radio.propTypes = {
 	value: PropTypes.string.isRequired,
 	name: PropTypes.string.isRequired,
-	label: PropTypes.string,
 	checked: PropTypes.bool,
 	onChange: PropTypes.func
 };
 
 Radio.defaultProps = {
 	name: 'defaultRadio',
-	label: '',
 	checked: false
 }
 

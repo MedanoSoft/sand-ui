@@ -36,21 +36,21 @@ class Icon extends Component {
 		const { color } = this.props;
 		switch(color) {
 			case 'active':
-				return secondary;
+				return secondary.default;
 			case 'inactive':
-				return gray;
+				return gray.default;
 			case 'success':
-				return green;
+				return green.default;
 			case 'disabled':
-				return gray;
+				return gray.default;
 			case 'inverse':
-				return primary;
+				return primary.default;
 			case 'warning':
-				return yellow;
+				return yellow.default;
 			case 'danger':
-				return red;
+				return red.default;
 			case 'error':
-				return red;
+				return red.default;
 			default:
 				return color;
 		}

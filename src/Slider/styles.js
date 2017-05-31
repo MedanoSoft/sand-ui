@@ -1,10 +1,10 @@
-import { lightGray, gray, secondary, secondaryDarker } from '../globals/colors';
+import { lightGray, gray, secondary } from '../globals/colors';
 
 import { StyleSheet } from 'aphrodite/no-important';
 
 export default StyleSheet.create({
 	wrapper: {
-		backgroundColor: lightGray,
+		backgroundColor: lightGray.default,
 		width: '100%',
 		height: 12,
 		borderRadius: 32,
@@ -16,13 +16,13 @@ export default StyleSheet.create({
 		width: 6,
 		height: 6,
 		borderRadius: '100%',
-		backgroundColor: gray,
+		backgroundColor: gray.default,
 		position: 'relative',
 		display: 'inline-block',
 		top: -5
 	},
 	bar: {
-		backgroundColor: secondary,
+		backgroundColor: secondary.default,
 		margin: 0,
 		position: 'absolute',
 		height: '100%',
@@ -33,7 +33,7 @@ export default StyleSheet.create({
 		position: 'absolute',
 		height: 18,
 		width: 18,
-		backgroundColor: secondary,
+		backgroundColor: secondary.default,
 		zIndex: 2,
 		marginTop: -3,
 		marginLeft: -9,
@@ -41,10 +41,10 @@ export default StyleSheet.create({
 		transition: 'all 0.5s ease',
 		cursor: 'pointer',
 		':hover': {
-			backgroundColor: secondaryDarker
+			backgroundColor: secondary.darker
 		},
 		':active': {
-			backgroundColor: secondaryDarker
+			backgroundColor: secondary.darker
 		}
 	},
 	container: {

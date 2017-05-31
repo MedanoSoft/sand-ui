@@ -10,7 +10,7 @@ function checkboxGenerator(backgroundColor, otherStyles={}) {
 		height: 20,
 		borderRadius: 5,
 		cursor: 'pointer',
-		backgroundColor,
+		backgroundColor: backgroundColor.default,
 		fontSize: 16,
 		transition: 'background-color 0.25s linear'
 	}, otherStyles);
@@ -28,7 +28,7 @@ export default StyleSheet.create({
 		':after': {
 			position: 'absolute',
 			content: '"✓"',
-			color: white,
+			color: white.default,
 			marginLeft: 5,
 			marginTop: 2,
 			fontSize: 12
@@ -43,7 +43,7 @@ export default StyleSheet.create({
 		':after': {
 			position: 'absolute',
 			content: '"✓"',
-			color: white,
+			color: white.default,
 			marginLeft: 5,
 			marginTop: 2,
 			fontSize: 12

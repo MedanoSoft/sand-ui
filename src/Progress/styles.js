@@ -12,7 +12,7 @@ import { StyleSheet } from 'aphrodite/no-important';
 
 function progressBarGenerator(color) {
 	return {
-		backgroundColor: color,
+		backgroundColor: color.default,
 		margin: 0,
 		height: '100%',
 		transition: 'width 0.5s ease'
@@ -22,7 +22,7 @@ function progressBarGenerator(color) {
 
 export default StyleSheet.create({
 	wrapper: {
-		backgroundColor: lightGray,
+		backgroundColor: lightGray.default,
 		width: '100%',
 		height: 12,
 		borderRadius: 32,

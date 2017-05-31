@@ -1,12 +1,12 @@
-import { white, secondary, secondaryDarker, font } from '../globals/colors';
+import { white, secondary, font } from '../globals/colors';
 
 import { StyleSheet } from 'aphrodite/no-important';
 
 export default StyleSheet.create({
 	wrapper: {
 		height: 'auto',
-		backgroundColor: white,
-		border: `2px solid ${secondary}`,
+		backgroundColor: white.default,
+		border: `2px solid ${secondary.default}`,
 		borderRadius: 6,
 		padding: 3,
 		boxSizing: 'border-box',
@@ -18,10 +18,10 @@ export default StyleSheet.create({
 		fontSize: 14,
 		margin: 3,
 		boxSizing: 'border-box',
-		border: `2px solid ${secondary}`,
+		border: `2px solid ${secondary.default}`,
 		borderRadius: 5,
-		backgroundColor: secondary,
-		color: white,
+		backgroundColor: secondary.default,
+		color: white.default,
 		cursor: 'pointer',
 		transition: 'background-color 0.25s linear, \
 		border 0.25s linear, \
@@ -29,8 +29,8 @@ export default StyleSheet.create({
 		':hover': {
 			paddingLeft: 2,
 			paddingRight: 28,
-			backgroundColor: secondaryDarker,
-			border: `2px solid ${secondaryDarker}`,
+			backgroundColor: secondary.darker,
+			border: `2px solid ${secondary.darker}`,
 			':after': {
 				opacity: 1
 			}

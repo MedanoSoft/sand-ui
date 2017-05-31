@@ -61,7 +61,7 @@ module.exports = {
     'prop-types': 'prop-types',
     'aphrodite': 'aphrodite',
     'aphrodite/no-important': 'aphrodite/no-important',
-    'react-look': 'react-look'
+    'shader': 'shader'
   },
   plugins: plugins
 };

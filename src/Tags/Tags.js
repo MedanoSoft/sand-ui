@@ -37,7 +37,7 @@ class Tags extends Component {
 		}));
 	}
 
-	componentDidUpdate(prevState) {
+	componentDidUpdate(prevProps, prevState) {
 		if(prevState.values !== this.state.values) {
 			if(this.props.onUpdate) {
 				this.props.onUpdate(this.state.values);

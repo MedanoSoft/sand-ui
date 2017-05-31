@@ -155,7 +155,7 @@ class DropdownExample extends React.Component {
 
 ### Icon
 
-This icon component uses SVG icons from [Linearicons](https://linearicons.com/free), you can use any of those icons passing the icon name without the `lnr-` prefix.
+This icon component uses SVG icons from [Linearicons](https://linearicons.com/free), you can use any of those icons passing the icon name without the `lnr-` prefix, all of those icon names are also described on this [Gist](https://gist.github.com/jhia/ccb7da42ff09e20be4fca68b5ad8fcdd) :octocat:
 
 **Example**
 
@@ -174,6 +174,7 @@ class IconExample extends React.Component {
   }
 }
 ```
+
 
 | Props     | Type      | Description                |
 | --------- | --------- | -----------------------    |
@@ -231,6 +232,56 @@ class NavbarExample extends React.Component {
 import { Progress } from 'sand-ui';
 ```
 
+### Radio
+
+Radio buttons with labels.
+
+**Instructions**
+
+> Give it a name to group all radio buttons of the same type. If not, a default name will be given. Value is unique, and is used as an id.
+
+**Example**
+
+```
+import React from 'react';
+import { Radio } from 'sand-ui';
+
+class RadioExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      animal: 'cat'
+    };
+    // ...
+    this.handleRadio = this.handleRadio.bind(this);
+  }
+
+//...
+  handleRadio(value) {
+    this.setState({
+      animal: value
+    });
+  }
+  
+  render() {
+    return (
+        <form>
+          <Radio name="animals" value="cat" checked={this.state.animal === 'cat'} onChange={this.handleRadio}>Cat</Radio>
+          <Radio name="animals" value="dog" checked={this.state.animal === 'dog'} onChange={this.handleRadio}>Dog</Radio>
+          <Radio value="dragon" name="animals" disabled>Dragon</Radio>
+        </form>
+    )
+  }
+}
+```
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| name      | String    | Name of radio group     |
+| value     | String    | Value for radio button  |
+| checked   | boolean   | Select this radio       |
+| disabled  | boolean   | Disable button interaction |
 
 ### Select
 

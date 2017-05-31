@@ -1,4 +1,4 @@
-import { gray, secondary, font, green, red } from '../globals/colors';
+import { gray, lightGray, secondary, font, green, red } from '../globals/colors';
 
 import { StyleSheet } from 'aphrodite';
 
@@ -7,9 +7,9 @@ function inputGenerator(color, otherStyles={}) {
     width: '100%',
     height: 'auto',
     boxSizing: 'border-box',
-    border: `2px solid ${color}`,
+    border: `2px solid ${color.default}`,
     borderRadius: 10,
-    color,
+    color: color.default,
     fontSize: '16px',
     padding: '0.5rem',
     boxShadow: 'none',
@@ -18,16 +18,16 @@ function inputGenerator(color, otherStyles={}) {
       outline: 'none'
     },
     '::-webkit-input-placeholder': {
-      color
+      color: color.default
     },
     ':-moz-placeholder': {
-      color
+      color: color.default
     },
     '::-moz-placeholder': {
-      color
+      color: color.default
     },
     ':-ms-input-placeholder': {
-      color
+      color: color.default
     }
   }, otherStyles);
 }
@@ -37,13 +37,13 @@ export default StyleSheet.create({
     color: font,
     ':focus': {
       outline: 'none',
-      border: `2px solid ${secondary}`
+      border: `2px solid ${secondary.default}`
     }
   }),
   success: inputGenerator(green),
   error: inputGenerator(red),
   disabled: inputGenerator(gray, {
-    backgroundColor: 'rgba(240, 240, 240, 0.7)'
+    backgroundColor: lightGray.default
   }),
   leftIcon: {
     textIndent: '2em'

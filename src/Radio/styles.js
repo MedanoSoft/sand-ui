@@ -1,4 +1,4 @@
-import { gray, font, secondary, white, lightGray } from '../globals/colors';
+import { gray, font, secondary } from '../globals/colors';
 
 import { StyleSheet } from 'aphrodite/no-important';
 
@@ -9,7 +9,7 @@ function radioGenerator(backgroundColor, otherStyles={}) {
 		width: 20,
 		height: 20,
 		borderRadius: '100%',
-		border: `3px solid ${backgroundColor}`,
+		border: `3px solid ${backgroundColor.default}`,
 		cursor: 'pointer',
 		background: 'none',
 		backgroundColor: 'none',
@@ -22,16 +22,12 @@ function radioGenerator(backgroundColor, otherStyles={}) {
 			width: 5,
 			height: 5,
 			margin: '7px',
-			backgroundColor,
+			backgroundColor: backgroundColor.default,
 			transform: 'translate(-50%, -50%)',
-			border: `1px solid ${backgroundColor}`,
+			border: `1px solid ${backgroundColor.default}`,
 			borderRadius: '100%'
 		},
-		':active': {
-			background: 'none'
-		},
 		':focus': {
-			background: 'none',
 			outline: 'none'
 		}
 	}, otherStyles);
@@ -51,7 +47,7 @@ export default StyleSheet.create({
 			opacity: 0
 		},
 		':hover': {
-			border: `3px solid ${gray}`,
+			border: `3px solid ${gray.default}`,
 			':after': {
 				opacity: 1,
 				position: 'absolute',
@@ -59,22 +55,23 @@ export default StyleSheet.create({
 				width: 5,
 				height: 5,
 				margin: '7px',
-				backgroundColor: gray,
+				backgroundColor: gray.default,
 				transform: 'translate(-50%, -50%)',
-				border: `1px solid ${gray}`,
+				border: `1px solid ${gray.default}`,
 				borderRadius: '100%'
 			}
 		}
 	}),
 	disabled: radioGenerator(gray, {
 		cursor: 'default',
-		backgroundColor: lightGray,
+		backgroundColor: gray.brighter,
 		':after': {
 			opacity: 0
 		}
 	}),
 	disabledChecked: radioGenerator(gray, {
 		cursor: 'default',
+		backgroundColor: gray.brighter
 	}),
 	text: {
 		position: 'relative',
