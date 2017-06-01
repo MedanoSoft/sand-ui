@@ -1,6 +1,6 @@
 {
   "name": "sand-ui",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Stylished React Components based on Flat UI",
   "main": "lib/sand.min.js",
   "scripts": {
