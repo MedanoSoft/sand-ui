@@ -10,54 +10,44 @@ class Slider extends Component {
 	constructor() {
 		super();
 		this.state = {
-			active: 0
-		}
-		this.setSeparators = this.setSeparators.bind(this);
+			percent: 0
+		};
+
+		this.handleSlider = this.handleSlider.bind(this);
 	}
 
-	setSeparators(sep) {
-		const { sections } = this.props;
-		let arr = [];
-		for(let i = 1; i < sections; i++) {
-			arr.push(
-				(<div key={i} className={css(defaultStyles.separator)} style={{left: `${(sep * i)}%`}}></div>)
-			);
+	componentWillReceiveProps(nextProps, nextState) {
+		if(nextState.percent !== this.state.percent) {
+			this.setState({
+				percent: nextState.percent
+			})
 		}
-		return arr;
+	}
+
+	handleSlider(e) {
+		const percent = e.target.value;
+		this.setState({ percent });
+		if(this.props.onChange)
+			this.props.onChange(percent);
 	}
 
 	render() {
-		const { sections, type } = this.props;
-		const { active } = this.state;
-
-		const sep = 100 / sections;
-
+		const { percent } = this.state;
 		return (
 			<div className={css(defaultStyles.container)}>
-				<input {...this.props} step={sections} type="range" className={css(defaultStyles.bar)} />
-				{this.setSeparators(sep)}
+				<input {...this.props} type="range" value={percent} className={css(defaultStyles.bar)} onChange={this.handleSlider} />
 			</div>
 		);
 	}
 }
 
-/*
-
-			<div className={css(defaultStyles.container)}>
-				<div className={css(defaultStyles.circle)} style={{left: `${(sep * active) / 2}%`}} draggable={true}></div>
-				<div className={css(defaultStyles.wrapper)}>
-					<div className={css(defaultStyles.bar)} style={{width: `${sep * active}%`}}></div>
-					{this.setSeparators(sep)}
-				</div>
-			</div>
-*/
 
 Slider.propTypes = {
-	sections: PropTypes.number
+	step: PropTypes.number
 }
 
 Slider.defaultProps = {
-	sections: 1
+	step: 1
 }
 
 export default Slider;
