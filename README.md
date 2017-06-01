@@ -309,6 +309,7 @@ class SliderExample extends React.Component {
   }
 
 }
+```
 
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
