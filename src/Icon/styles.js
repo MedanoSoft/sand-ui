@@ -6,7 +6,8 @@ export default StyleSheet.create({
 	default: {
 		position: 'relative',
 		display: 'inline',
-		height: '100%'
+		height: '100%',
+		transformOrigin: '48% 53%'
 	},
 	input: {
 		marginLeft: '0.7rem',

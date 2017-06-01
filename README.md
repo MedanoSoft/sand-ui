@@ -292,6 +292,30 @@ class RadioExample extends React.Component {
 
 ### Slider
 
+This is a stylished form of `<input type="range" />` see [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range) about.
+
+**Example**
+
+```
+import React from 'react';
+import { Slider } from 'sand-ui';
+
+class SliderExample extends React.Component {
+
+  render() {
+    return (
+      <Slider step={4} />
+    );
+  }
+
+}
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| step      | Number    | Range separation. Default: `1` |
+| style     | Object    | Custom styles to add    |
+
+
 
 ### Tags
 
