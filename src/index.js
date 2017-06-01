@@ -11,5 +11,6 @@ module.exports = {
   Slider: require('./Slider').default,
   Checkbox: require('./Checkbox').default,
   Icon: require('./Icon').default,
-  Radio: require('./Radio').default
+  Radio: require('./Radio').default,
+  Switch: require('./Switch').default
 };

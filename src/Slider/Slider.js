@@ -43,7 +43,8 @@ class Slider extends Component {
 
 
 Slider.propTypes = {
-	step: PropTypes.number
+	step: PropTypes.number,
+	onChange: PropTypes.func
 }
 
 Slider.defaultProps = {
