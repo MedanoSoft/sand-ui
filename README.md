@@ -157,6 +157,8 @@ class DropdownExample extends React.Component {
 
 This icon component uses SVG icons from [Linearicons](https://linearicons.com/free), you can use any of those icons passing the icon name without the `lnr-` prefix, all of those icon names are also described on this [Gist](https://gist.github.com/jhia/ccb7da42ff09e20be4fca68b5ad8fcdd) :octocat:
 
+> Note: Remember to provide any container of this Icon component with a height.
+
 **Example**
 
 ```
@@ -169,7 +171,9 @@ class IconExample extends React.Component {
 
   render() {
     return (
+      <div style={{ height: 200 }}>
         <Icon name="bug" color="#00A86B" />
+      </div>
     )
   }
 }

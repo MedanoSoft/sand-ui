@@ -4,7 +4,9 @@ import { StyleSheet } from 'aphrodite/no-important';
 
 export default StyleSheet.create({
 	default: {
-		width: '3em'
+		position: 'relative',
+		display: 'inline',
+		height: '100%'
 	},
 	input: {
 		marginLeft: '0.7rem',
