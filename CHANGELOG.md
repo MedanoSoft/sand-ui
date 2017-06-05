@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.8 (2017-06-05)
+
+Minor bugfixes
+
+## 0.2.7 (2017-06-05)
+
+- Switch component
+- Documentation updated
+
 ## 0.2.0 (2017-05-30)
 
 - No need to use UIProvider

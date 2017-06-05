@@ -25,7 +25,9 @@ function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
       border: `3px solid ${backgroundColor.brighter}`
     },
     ':focus': {
-      outline: 'none'
+      outline: 'none',
+      backgroundColor: backgroundColor.brighter,
+      border: `3px solid ${backgroundColor.brighter}`
     },
     ':active': {
       backgroundColor: backgroundColor.darker,
