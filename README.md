@@ -317,8 +317,78 @@ class SliderExample extends React.Component {
 | style     | Object    | Custom styles to add    |
 
 
+### Switch
+
+Use a switch if you need a playful component for a boolean input value.
+
+**Example**
+
+```
+import React from 'react';
+import { Switch } from 'sand-ui';
+
+class SwitchExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      status: true
+    };
+    // ...
+    this.handleSwitch = this.handleSwitch.bind(this);
+  }
+
+//...
+  handleSwitch(value) {
+    this.setState({
+      status: value
+    });
+  }
+  
+  render() {
+    const { status } = this.state;
+    return (
+        <form>
+          <Switch type="box" status={status} onChange={this.handleSwitch} />
+        </form>
+    )
+  }
+}
+```
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| type      | String    | Style of the current switch. Available: 'circle' (default), 'box'. |
+| status    | Boolean   | Current checkbox status |
+| onChange  | Function  | Action on checkbox status, returns the Switch new state as a boolean.  |
+
 
 ### Tags
+
+For multiple input strings, Tags component! :smile:
+
+**Example**
+
+```
+import React from 'react';
+import { Tags } from 'sand-ui';
+
+class TagsExample extends React.Component {
+
+  render() {
+    return (
+      <Tags values={['One', 'Two']} onUpdate={(values) => console.log(values)} />
+    );
+  }
+
+}
+```
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| values    | Array     | Stack of strings as values from user input  |
+| list      | Array     | List of possible values, or datalist |
+| onUpdate  | Function  | Action when values had changed  |
 
 
 ### TextInput

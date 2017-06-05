@@ -1,11 +1,10 @@
-import { primary, secondary, gray, lightGray, white } from '../globals/colors';
+import { primary, secondary, gray, lightGray, white } from '../../globals/colors';
 
 import { StyleSheet } from 'aphrodite/no-important';
 
-function ballGenerator(color, otherStyles={}) {
+function boxGenerator(color, otherStyles={}) {
 	return Object.assign({
 			backgroundColor: color.default,
-			marginLeft: 45,
 			':hover': {
 				backgroundColor: color.brighter
 			},
@@ -20,22 +19,22 @@ function ballGenerator(color, otherStyles={}) {
 }
 
 export default StyleSheet.create({
-	ball: {
+	box: {
 		appearance: 'none',
-		width: 20,
-		height: 20,
+		width: 30,
+		height: 30,
 		position: 'absolute',
-		borderRadius: '100%',
-		marginTop: 4.25,
 		zIndex: 2,
-		transition: 'all 0.3s ease'
+		cursor: 'pointer',
+		transition: 'all 0.15s linear',
+		marginTop: -0.25
 	},
-	ballOn: ballGenerator(secondary, {
-		marginLeft: 45
+	boxOn: boxGenerator(secondary, {
+		marginLeft: 40
 	}),
-	ballOff: ballGenerator(gray, {
+	boxOff: boxGenerator(gray, {
 		backgroundColor: gray.darker,
-		marginLeft: 75
+		marginLeft: 70
 	}),
 	on: {
 		position: 'absolute',
@@ -49,8 +48,7 @@ export default StyleSheet.create({
 		fontWeight: 700,
 		fontSize: 15,
 		paddingTop: 6,
-		paddingLeft: 12,
-		borderRadius: '50px 0px 0px 50px'
+		paddingLeft: 12
 	},
 	off: {
 		position: 'absolute',
@@ -65,20 +63,20 @@ export default StyleSheet.create({
 		fontWeight: 700,
 		fontSize: 15,
 		paddingTop: 6,
-		paddingRight: 12,
-		borderRadius: '0px 50px 50px 0px'
+		paddingRight: 15
 	},
 	container: {
 		width: 70,
 		height: 30,
 		position: 'relative',
 		overflow: 'hidden',
-		borderRadius: 50,
-		margin: '7px 15px'
+		margin: '7px 15px',
+		cursor: 'pointer',
+		borderRadius: 7
 	},
 	flipper: {
 		position: 'relative',
-		transition: 'all 0.35s linear'
+		transition: 'all 0.2s linear'
 	},
 	flipperOn: {
 		left: 0

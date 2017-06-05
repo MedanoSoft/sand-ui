@@ -2,63 +2,48 @@ import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
-import { css } from 'aphrodite/no-important';
+import Circle from './circle';
 
-import defaultStyles from './styles';
-
+import Box from './box'
 
 class Switch extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			status: this.props.status
-		};
-
-		this.changeStatus = this.changeStatus.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-	}
-
-
-
-	changeStatus(e) {
-		this.setState({
-			status: !this.state.status
-		});
-	}
-
-	handleChange(e) {
-
-		if(this.props.onChange) {
-			this.props.onChange(status);
+	setComponent(type) {
+		switch(type) {
+			case 'circle':
+				return Circle;
+			case 'box':
+				return Box;
+			default:
+				return Circle;
 		}
 	}
 
 	render() {
-		const { status } = this.state;
-		console.log(status);
+		const { type } = this.props;
+
 		const passedProps = {
 			...this.props
 		};
-		delete(passedProps.status, passedProps.onChange);
+
+		delete(passedProps.type);
+
+		const Component = this.setComponent(type);
+
 		return (
-			<figure className={css(defaultStyles.container)} onClick={this.changeStatus}>
-				<div className={css(defaultStyles.flipper, this.state.status ? defaultStyles.flipperOn : defaultStyles.flipperOff)}>
-				<span className={css(defaultStyles.on)}>ON</span>
-				<input {...passedProps} type="checkbox" checked={status} className={css(defaultStyles.ball, this.state.status ? defaultStyles.ballOn : defaultStyles.ballOff)} onChange={this.handleChange} />
-				<span className={css(defaultStyles.off)}>OFF</span>
-				</div>
-			</figure>
+			<Component {...passedProps} />
 		);
 	}
 }
 
 Switch.propTypes = {
+	type: PropTypes.string.isRequired,
 	name: PropTypes.string,
 	status: PropTypes.bool.isRequired,
 	onChange: PropTypes.func
 }
 
 Switch.defaultProps = {
+	type: 'circle',
 	status: true
 }
 

@@ -12,5 +12,6 @@ module.exports = {
   Checkbox: require('./Checkbox').default,
   Icon: require('./Icon').default,
   Radio: require('./Radio').default,
-  Switch: require('./Switch').default
+  Switch: require('./Switch').default,
+  Pagination: require('./pagination').default
 };
