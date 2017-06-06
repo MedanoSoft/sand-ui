@@ -1,9 +1,9 @@
-import * as colors from '../globals/colors';
+import * as colors from '../globals/colors'
 
-import { StyleSheet } from 'aphrodite/no-important';
+import { StyleSheet } from 'aphrodite/no-important'
 
-function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
-  borderColor = borderColor || backgroundColor.default;
+function buttonGenerator (backgroundColor, borderColor, otherStyles = {}) {
+  borderColor = borderColor || backgroundColor.default
   return Object.assign({}, {
     display: 'flex',
     border: `3px solid ${borderColor}`,
@@ -33,7 +33,7 @@ function buttonGenerator(backgroundColor, borderColor, otherStyles={}) {
       backgroundColor: backgroundColor.darker,
       border: `3px solid ${backgroundColor.darker}`
     }
-  }, otherStyles);
+  }, otherStyles)
 }
 
 export default StyleSheet.create({
@@ -44,4 +44,4 @@ export default StyleSheet.create({
   inverse: buttonGenerator(colors.primary),
   disabled: buttonGenerator(colors.gray, colors.gray.default, { cursor: 'default' }),
   info: buttonGenerator(colors.blue)
-});
+})

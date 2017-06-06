@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import defaultStyles from './styles';
+import defaultStyles from './styles'
 
 class Box extends Component {
-  render() {
+  render () {
     return (
       <section>
         {this.props.children}
       </section>
-    );
+    )
   }
 }
 
-export default Box;
+export default Box

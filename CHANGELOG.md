@@ -2,7 +2,7 @@
 
 ## 0.2.8 (2017-06-05)
 
-Minor bugfixes
+Fixed unrecognized button focus
 
 ## 0.2.7 (2017-06-05)
 

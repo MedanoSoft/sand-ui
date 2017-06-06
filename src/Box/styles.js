@@ -1,6 +1,6 @@
-import { font, white } from '../globals/colors';
+import { font, white } from '../globals/colors'
 
-import { StyleSheet } from 'aphrodite/no-important';
+import { StyleSheet } from 'aphrodite/no-important'
 
 export default StyleSheet.create({
   fontSize: 16,
@@ -8,4 +8,4 @@ export default StyleSheet.create({
   backgroundImage: 'none',
   backgroundColor: white,
   minWidth: 300
-});
+})

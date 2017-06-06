@@ -14,4 +14,4 @@ module.exports = {
   Radio: require('./Radio').default,
   Switch: require('./Switch').default,
   Pagination: require('./pagination').default
-};
+}

@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 class UIProvider extends Component {
-  render() {
+  render () {
     return (
       <div>
         {this.props.children}
@@ -10,5 +10,4 @@ class UIProvider extends Component {
   }
 }
 
-
-export default UIProvider;
+export default UIProvider

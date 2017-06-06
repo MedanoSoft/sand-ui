@@ -1,46 +1,46 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-import defaultStyles from './styles';
+import defaultStyles from './styles'
 
-import { css } from 'aphrodite/no-important';
+import { css } from 'aphrodite/no-important'
 
 class Select extends Component {
-	constructor() {
-		super();
+  constructor () {
+    super()
 
-		this.setOptions = this.setOptions.bind(this);
-	}
+    this.setOptions = this.setOptions.bind(this)
+  }
 
-	setOptions() {
-		return this.props.options.map((node, i) => (
-			<option key={i} className={css(defaultStyles.item)} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
-		));
-	}
+  setOptions () {
+    return this.props.options.map((node, i) => (
+      <option key={i} className={css(defaultStyles.item)} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
+		))
+  }
 
-  render() {
-  	const { name } = this.props;
+  render () {
+  	const { name } = this.props
   	const passedProps = {
-      ...this.props
-    };
-    delete(passedProps.options);
+    ...this.props
+  }
+    delete (passedProps.options)
 
     return (
-    	<select {...passedProps} name={name} className={css(defaultStyles.caption)}>
-    		{this.setOptions()}
-    	</select>
-    );
+      <select {...passedProps} name={name} className={css(defaultStyles.caption)}>
+        {this.setOptions()}
+      </select>
+    )
   }
 }
 
 Select.propTypes = {
-	options: PropTypes.array,
-	name: PropTypes.string
+  options: PropTypes.array,
+  name: PropTypes.string
 }
 
 Select.defaultProps = {
-	options: []
+  options: []
 }
 
-export default Select;
+export default Select

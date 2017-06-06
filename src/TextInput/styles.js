@@ -1,8 +1,8 @@
-import { gray, lightGray, secondary, font, green, red } from '../globals/colors';
+import { gray, lightGray, secondary, font, green, red } from '../globals/colors'
 
-import { StyleSheet } from 'aphrodite';
+import { StyleSheet } from 'aphrodite'
 
-function inputGenerator(color, otherStyles={}) {
+function inputGenerator (color, otherStyles = {}) {
   return Object.assign({}, {
     width: '100%',
     height: 'auto',
@@ -29,7 +29,7 @@ function inputGenerator(color, otherStyles={}) {
     ':-ms-input-placeholder': {
       color: color.default
     }
-  }, otherStyles);
+  }, otherStyles)
 }
 
 export default StyleSheet.create({
@@ -57,4 +57,4 @@ export default StyleSheet.create({
     flexWrap: 'no-wrap',
     alignItems: 'center'
   }
-});
+})

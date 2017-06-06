@@ -1,50 +1,50 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 
-import Circle from './circle';
+import Circle from './circle'
 
 import Box from './box'
 
 class Switch extends Component {
-	setComponent(type) {
-		switch(type) {
-			case 'circle':
-				return Circle;
-			case 'box':
-				return Box;
-			default:
-				return Circle;
-		}
-	}
+  setComponent (type) {
+    switch (type) {
+      case 'circle':
+        return Circle
+      case 'box':
+        return Box
+      default:
+        return Circle
+    }
+  }
 
-	render() {
-		const { type } = this.props;
+  render () {
+    const { type } = this.props
 
-		const passedProps = {
-			...this.props
-		};
+    const passedProps = {
+      ...this.props
+    }
 
-		delete(passedProps.type);
+    delete (passedProps.type)
 
-		const Component = this.setComponent(type);
+    const Component = this.setComponent(type)
 
-		return (
-			<Component {...passedProps} />
-		);
-	}
+    return (
+      <Component {...passedProps} />
+    )
+  }
 }
 
 Switch.propTypes = {
-	type: PropTypes.string.isRequired,
-	name: PropTypes.string,
-	status: PropTypes.bool.isRequired,
-	onChange: PropTypes.func
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  status: PropTypes.bool.isRequired,
+  onChange: PropTypes.func
 }
 
 Switch.defaultProps = {
-	type: 'circle',
-	status: true
+  type: 'circle',
+  status: true
 }
 
-export default Switch;
+export default Switch
