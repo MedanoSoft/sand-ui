@@ -35,6 +35,7 @@ export default StyleSheet.create({
   container: {
     display: 'block',
     height: 25,
+    position: 'relative',
     width: '100%'
   }
 })
