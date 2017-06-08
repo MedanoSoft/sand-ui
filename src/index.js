@@ -1,6 +1,7 @@
 module.exports = {
   UIProvider: require('./utils/provider').default,
   Button: require('./Button').default,
+  Container: require('./Container').default,
   Box: require('./Box').default,
   TextInput: require('./TextInput').default,
   Dropdown: require('./Dropdown').default,

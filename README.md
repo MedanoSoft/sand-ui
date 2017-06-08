@@ -438,6 +438,73 @@ class InputExample extends React.Component {
 | style     | Object    | Custom styles to add    |
 
 
+## Grids
+
+In order to make a responsive display, we have integrated a grid system called [Flexbox Grid](http://flexboxgrid.com/) and adapted to React components, now you got a flex-based full grid display.
+
+### Container
+
+This component offers a flexible layout for multiple boxes or any other children.
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| direction | String    | Boxes direction, type: `row` (default), `column` |
+| reverse   | Boolean   | Reverse order of the boxes, default: `false` |
+| fluid     | Boolean   | More fluent and spaced container, default: `false` | 
+| dist      | String    | Boxes distribution for minimal screen sizes, type: `start`, `center`, `end`, `around`(default), `between` |
+| smDist    | String    | Boxes distribution for small screen sizes, type: `start`, `center`, `end`, `around`, `between` |
+| mdDist    | String    | Boxes distribution for medium screen sizes, type: `start`, `center`, `end`, `around`(default), `between` |
+| lgDist    | String    | Boxes distribution for large screen sizes, type: `start`, `center`, `end`, `around`, `between` |
+| align     | String    | Box alignment for minimal screen sizes, type: `top`(default), `middle`, `bottom` |
+| smAlign   | String    | Box alignment for small screen sizes, type: `top`, `middle`, `bottom` |
+| mdAlign   | String    | Box alignment for medium screen sizes, type: `top`, `middle`, `bottom` |
+| lgAlign   | String    | Box alignment for large screen sizes, type: `top`, `middle`, `bottom` |
+| style     | Object    | Custom styles to add    |
+
+
+### Box
+
+Component with flexible column size (selected from 1 to 12, auto if not defined).
+
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| xs        | Number    | Column size for minimal screen size, from 1 to 12, default `0`(auto) |
+| xsOffset  | Number    | Left distance spacing (in columns) for minimal screen size, from 1 to 12, default `0`(auto) |
+| sm        | Number    | Column size for small screen size, from 1 to 12, default `0`(auto) |
+| smOffset  | Number    | Left distance spacing (in columns) for small screen size, from 1 to 12, default `0`(auto) |
+| md        | Number    | Column size for medium screen size, from 1 to 12, default `0`(auto) |
+| mdOffset  | Number    | Left distance spacing (in columns) for medium screen size, from 1 to 12, default `0`(auto) |
+| lg        | Number    | Column size for large screen size, from 1 to 12, default `0`(auto) |
+| lgOffset  | Number    | Left distance spacing (in columns) for large screen size, from 1 to 12, default `0`(auto) |
+| style     | Object    | Custom styles to add    |
+
+
+### Example
+
+```
+import React from 'react';
+import { Container, Box } from 'sand-ui';
+
+class InputExample extends React.Component {
+  render() {
+    return (
+      <Container fluid mdAlign={"middle"} reverse>
+        <Box xs={4} md={6} style={{backgroundColor: 'red' }}>
+          <p>Hi</p>
+        </Box>
+        <Box xs={2} md={4} style={{backgroundColor: 'green' }}>
+          <p>From a</p>
+        </Box>
+        <Box style={{backgroundColor: 'blue' }}>
+          <p>Box!</p>
+        </Box>
+      </Container>
+    )
+  }
+}
+```
+
+
 ## License
 
 Copyright (c) 2004-2010 by Internet Systems Consortium, Inc. ("ISC") 
