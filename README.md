@@ -183,6 +183,7 @@ class IconExample extends React.Component {
 | Props     | Type      | Description                |
 | --------- | --------- | -----------------------    |
 | name      | String    | Icon name from Linearicons |
+| size      | String    | Define icon width          |
 | color     | String    | Color of the icon, you can use an hex color or use any of this words: `active`, `inactive`, `success`, `warning`, `danger`, `disabled`, `inverse`, for Flat UI colorscheme |
 
 ### Navbar
