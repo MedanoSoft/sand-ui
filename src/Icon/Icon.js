@@ -66,12 +66,10 @@ class Icon extends Component {
     delete (passedProps.color)
     delete (passedProps.size)
     return (
-      <span style={{ height: this.props.size }}>
-        <svg {...passedProps} className={css(defaultStyles[appearance])} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' aria-labelledby='title'>
-          <title>{name}</title>
-          {svg.map((path, i) => (<path key={i} fill={color} d={path} />))}
-        </svg>
-      </span>
+      <svg {...passedProps} width={this.props.size} className={css(defaultStyles[appearance])} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' aria-labelledby='title'>
+        <title>{name}</title>
+        {svg.map((path, i) => (<path key={i} fill={color} d={path} />))}
+      </svg>
     )
   }
 }
