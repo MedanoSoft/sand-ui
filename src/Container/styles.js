@@ -2,24 +2,13 @@ import { StyleSheet } from 'aphrodite/no-important'
 
 export default StyleSheet.create({
   container: {
+    width: '100%',
     marginLeft: 'auto',
     marginRight: 'auto',
-    '@media only screen and (min-width: 48rem)': {
-      padding: '1rem'
-    },
-    '@media only screen and (min-width: 48em)': {
-      width: '49rem'
-    },
-    '@media only screen and (min-width: 64em)': {
-      width: '65rem'
-    },
-    '@media only screen and (min-width: 75em)': {
-      width: '76rem'
-    }
+    padding: 0
   },
   fluid: {
-    paddingRight: '2rem',
-    paddingLeft: '2rem'
+    padding: '1rem 2rem'
   },
   nested: {
     '@media only screen and (min-width: 48rem)': {

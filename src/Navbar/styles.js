@@ -21,7 +21,10 @@ export default StyleSheet.create({
     letterSpacing: 0.35
   },
   searchbar: {
-    alignSelf: 'right'
+    alignSelf: 'right',
+    '@media only screen and (max-width: 25rem)': {
+      display: 'none'
+    }
   },
   searchInput: {
     minWidth: 150,
@@ -52,17 +55,17 @@ export default StyleSheet.create({
       borderColor: secondary.default,
       color: secondary.default,
       '::-webkit-input-placeholder': {
-      	color: secondary.default
-	    },
-	    ':-moz-placeholder': {
-	      color: secondary.default
-	    },
-	    '::-moz-placeholder': {
-	      color: secondary.default
-	    },
-	    ':-ms-input-placeholder': {
-	      color: secondary.default
-	    }
+        color: secondary.default
+      },
+      ':-moz-placeholder': {
+        color: secondary.default
+      },
+      '::-moz-placeholder': {
+        color: secondary.default
+      },
+      ':-ms-input-placeholder': {
+        color: secondary.default
+      }
     }
   }
 

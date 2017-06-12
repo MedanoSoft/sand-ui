@@ -231,11 +231,58 @@ class NavbarExample extends React.Component {
 | style     | object    | Custom styles to add    |
 
 
-### Progress Bar
+### Pagination
+
+Navigation with this simple pagination component.
+
+**Example**
 
 ```
-import { Progress } from 'sand-ui';
+import React, { Component } from 'react';
+import { Pagination } from 'sand-ui';
+
+class PaginationExample extends Component {
+  render() {
+    return (
+      <Pagination pages={30} onPagination={(index) => console.log(`Switch to page ${index}`)} />
+    )
+  }
+}
 ```
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| pages     | Number    | Total of list options to show, default: `0`, which means *All*  |
+| active    | Number    | Index of the active list option |
+| onPagination  | Function | Called when user selects an option, return the option `index` |
+| onLeftClick | Function | Called when user selects the left button |
+| onRightClick | Function | Called when user selects the right button |
+
+
+
+### Progress Bar
+
+Horizontal light bar for showing progress.
+
+**Example**
+
+```
+import React, { Component } from 'react';
+import { Progress } from 'sand-ui';
+
+class ProgressExample extends Component {
+  render() {
+    return (
+      <Progress type="info" percent={15} />
+    )
+  }
+}
+```
+| Props     | Type      | Description             |
+| --------- | --------- | ----------------------- |
+| type      | String    | Progress bar colorscheme. Available: `default`, `info`, `success`, `warning`, `danger`, `inverse` |
+| percent   | Number    | Percent of progress. Default: `15` |
+| style     | object    | Custom styles to add    |
+
 
 ### Radio
 
