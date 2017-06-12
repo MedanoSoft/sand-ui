@@ -26,13 +26,13 @@ class TextInput extends Component {
     delete (passedProps.icon)
     return (
       <div className={css(defaultStyles.wrapper)}>
-        {this.props.icon && this.setInputIcon()}
         <input
           {...passedProps}
           className={css(defaultStyles[className], this.props.icon && defaultStyles.leftIcon)}
           disabled={className === 'disabled' ? true : disabled}
           style={style && style.fontSize && !style.textIndent && { ...style, textIndent: style.fontSize, paddingLeft: '0.8rem' }}
         />
+        {this.props.icon && this.setInputIcon()}
       </div>
     )
   }

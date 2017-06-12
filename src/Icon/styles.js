@@ -10,9 +10,9 @@ export default StyleSheet.create({
     transformOrigin: '48% 53%'
   },
   input: {
-    marginLeft: '0.7rem',
+    marginLeft: '-99%',
     width: '1.5em',
     display: 'inline',
-    position: 'absolute'
+    position: 'relative'
   }
 })
