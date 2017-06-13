@@ -16,7 +16,7 @@ class Navbar extends Component {
     const { placeholder } = this.props
     return (
       <form className={css(defaultStyles.searchbar)} onSubmit={(e) => { e.preventDefault(); this.props.onSearch(this.searchInput.value) }}>
-        <input className={css(defaultStyles.searchInput)} type='search' placeholder={placeholder} ref={(input) => this.seatchInput = input} />
+        <input className={css(defaultStyles.searchInput)} type='search' placeholder={placeholder} ref={(input) => this.searchInput = input} />
       </form>
     )
   }
