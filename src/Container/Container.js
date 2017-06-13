@@ -45,40 +45,52 @@ class Container extends Component {
 
   setCSS () {
     const {
-    	direction,
-    	dist,
-    	smDist,
-    	mdDist,
-    	lgDist,
-    	align,
-    	smAlign,
-    	mdAlign,
-    	lgAlign
+      direction,
+      dist,
+      smDist,
+      mdDist,
+      lgDist,
+      align,
+      smAlign,
+      mdAlign,
+      lgAlign
     } = this.props
 
     return css(
-    	defaultStyles.container,
-    	direction === 'row' ? defaultStyles.row : defaultStyles.column,
-    	this.props.fluid && defaultStyles.fluid,
-    	this.props.reverse && direction === 'row'
-    	? defaultStyles.rowReverse
-    	: defaultStyles.columnReverse,
-    	this.setDistribution(dist, 'xs'),
-    	this.setDistribution(smDist, 'sm'),
-    	this.setDistribution(mdDist, 'md'),
-    	this.setDistribution(lgDist, 'lg'),
-    	this.setAlignment(align, 'xs'),
-    	this.setAlignment(smAlign, 'sm'),
-    	this.setAlignment(mdAlign, 'md'),
-    	this.setAlignment(lgAlign, 'lg')
+      defaultStyles.container,
+      direction === 'row' ? defaultStyles.row : defaultStyles.column,
+      this.props.fluid && defaultStyles.fluid,
+      this.props.reverse && direction === 'row'
+      ? defaultStyles.rowReverse
+      : defaultStyles.columnReverse,
+      this.setDistribution(dist, 'xs'),
+      this.setDistribution(smDist, 'sm'),
+      this.setDistribution(mdDist, 'md'),
+      this.setDistribution(lgDist, 'lg'),
+      this.setAlignment(align, 'xs'),
+      this.setAlignment(smAlign, 'sm'),
+      this.setAlignment(mdAlign, 'md'),
+      this.setAlignment(lgAlign, 'lg')
     )
   }
 
   render () {
+    const passedProps = { ...this.props }
+    delete (passedProps.direction)
+    delete (passedProps.reverse)
+    delete (passedProps.fluid)
+    delete (passedProps.dist)
+    delete (passedProps.smDist)
+    delete (passedProps.mdDist)
+    delete (passedProps.lgDist)
+    delete (passedProps.align)
+    delete (passedProps.smAlign)
+    delete (passedProps.mdAlign)
+    delete (passedProps.lgAlign)
     return (
-      <section {...this.props} className={this.setCSS()}>
+      <div {...passedProps} className={this.setCSS()}>
         {this.props.children}
-      </section>
+      </div>
     )
   }
 }
@@ -102,13 +114,7 @@ Container.defaultProps = {
   reverse: false,
   fluid: false,
   dist: 'around',
-  smDist: 'around',
-  mdDist: 'around',
-  lgDist: 'around',
-  align: 'top',
-  smAlign: 'top',
-  mdAlign: 'top',
-  lgAlign: 'top'
+  align: 'top'
 }
 
 export default Container

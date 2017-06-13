@@ -41,17 +41,19 @@ class Box extends Component {
     const passedProps = {
       ...this.props
     }
-    delete (
-      passedProps.xs, passedProps.xsOffset,
-      passedProps.sm, passedProps.smOffset,
-      passedProps.md, passedProps.mdOffset,
-      passedProps.lg, passedProps.lgOffset
-    )
+    delete (passedProps.xs)
+    delete (passedProps.xsOffset)
+    delete (passedProps.sm)
+    delete (passedProps.smOffset)
+    delete (passedProps.md)
+    delete (passedProps.mdOffset)
+    delete (passedProps.lg)
+    delete (passedProps.lgOffset)
 
     return (
-      <article {...this.props} className={this.setCSS()}>
+      <div {...passedProps} className={this.setCSS()}>
         {this.props.children}
-      </article>
+      </div>
     )
   }
 }

@@ -35,7 +35,8 @@ class Switch extends Component {
     const passedProps = {
       ...this.props
     }
-    delete (passedProps.status, passedProps.onChange)
+    delete (passedProps.status)
+    delete (passedProps.onChange)
     return (
       <figure className={css(defaultStyles.container)} onClick={this.changeStatus}>
         <div className={css(defaultStyles.flipper, this.state.status ? defaultStyles.flipperOn : defaultStyles.flipperOff)}>
