@@ -8,11 +8,5 @@ export default StyleSheet.create({
     padding: 2,
     height: '100%',
     transformOrigin: '48% 53%'
-  },
-  input: {
-    marginLeft: '-99%',
-    width: '1.5em',
-    display: 'inline',
-    position: 'relative'
   }
 })

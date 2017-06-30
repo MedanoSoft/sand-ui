@@ -13,7 +13,7 @@ class TextInput extends Component {
     const { icon, style, className } = this.props
     if (typeof icon === typeof '') {
       return (
-        <Icon name={this.props.icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} appearance='input' color={className === 'active' ? 'inactive' : className} />
+        <Icon className={css(defaultStyles.icon)} name={this.props.icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} color={className === 'active' ? 'inactive' : className} />
       )
     }
     return React.cloneElement(icon, { appearance: 'input' })

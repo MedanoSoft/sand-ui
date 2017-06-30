@@ -48,6 +48,12 @@ export default StyleSheet.create({
   leftIcon: {
     textIndent: '2.2em'
   },
+  icon: {
+    marginLeft: '-99%',
+    width: '1.5em',
+    display: 'inline',
+    position: 'relative'
+  },
   wrapper: {
     width: '100%',
     height: 'auto',

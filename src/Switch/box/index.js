@@ -31,7 +31,6 @@ class Switch extends Component {
 
   render () {
     const { status } = this.state
-    console.log(status)
     const passedProps = {
       ...this.props
     }

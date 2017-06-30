@@ -29,7 +29,6 @@ class Tags extends Component {
   }
 
   deleteTag (i) {
-    console.log(i)
     this.setState((state) => ({
       values: [
         ...state.values.slice(0, i),
@@ -62,7 +61,7 @@ class Tags extends Component {
       <datalist id={id}>
         {list.map((opt, i) => (
           <option key={i} value={opt} />
-				))}
+        ))}
       </datalist>
     )
   }
@@ -82,7 +81,7 @@ class Tags extends Component {
         {this.props.list && this.setDatalist(uid)}
         {values.map((tag, i) => (
           <span key={i} className={css(defaultStyles.label)} onClick={() => this.deleteTag(i)}>{tag}</span>
-				))}
+        ))}
         <form onSubmit={this.handleSubmit} className={css(defaultStyles.form)}>
           <input
             type='text'
