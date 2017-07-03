@@ -1,7 +1,11 @@
-# Linearicons Names
+# Icon Names
 Just put one of this name as prop on the Icon component and you will have an icon :heart:
 
 > Latest icons from newest update has been identified with *New* attribute.
+
+Most of the icons are property of Linearicons
+
+Some of the icons also were made by [Freepik](http://www.freepik.com)from [www.flaticon.com](http://www.flaticon.com) and is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
 
 - alarm
 - apartment
@@ -13,6 +17,7 @@ Just put one of this name as prop on the Icon component and you will have an ico
 - arrow-right
 - arrow-up-circle
 - arrow-up
+- barcode *New*
 - bicycle
 - bold
 - book
@@ -69,6 +74,7 @@ Just put one of this name as prop on the Icon component and you will have an ico
 - exit
 - eye
 - file-add
+- file-edit *New*
 - file-empty
 - film-play
 - flag
@@ -110,6 +116,7 @@ Just put one of this name as prop on the Icon component and you will have an ico
 - menu
 - mic
 - minus *New*
+- money *New*
 - moon
 - move
 - music-note
@@ -171,6 +178,7 @@ Just put one of this name as prop on the Icon component and you will have an ico
 - thumbs-up
 - train
 - trash
+- truck *New*
 - underline
 - undo
 - unlink
