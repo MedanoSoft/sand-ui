@@ -59,7 +59,8 @@ class ButtonExample extends React.Component {
 
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
-| className | String    | Change button color depending on type. Available: `active` (default), `info`, `inverse`, `success`, `warning`, `danger`, `disabled` |
+| type      | String    | Change button color depending on type. Available: `active` (default), `info`, `inverse`, `success`, `warning`, `danger`, `disabled` |
+| light     | Boolean   | Activate a light-style button |
 | link      | String    | The same as anchor href |
 | style     | Object    | Customs styles to add   |
 
