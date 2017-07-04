@@ -1011,6 +1011,10 @@ color-name@^1.1.1:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.2.tgz#5c8ab72b64bd2215d617ae9559ebb148475cf98d"
 
+color-props@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/color-props/-/color-props-0.0.3.tgz#c4071b0012df230860c2d8c2e27cd3d32654dff3"
+
 combined-stream@^1.0.5, combined-stream@~1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/combined-stream/-/combined-stream-1.0.5.tgz#938370a57b4a51dea2c77c15d5c5fdf895164009"

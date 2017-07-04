@@ -23,7 +23,7 @@ class Button extends Component {
       )
     }
     return (
-      <button {...this.props} className={css(light ? defaultStyles[`light-${type}`] : defaultStyles[type])}>
+      <button {...passedProps} className={css(light ? defaultStyles[`light-${type}`] : defaultStyles[type])}>
         {this.props.children}
       </button>
     )

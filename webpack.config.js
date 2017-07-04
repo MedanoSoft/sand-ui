@@ -60,7 +60,8 @@ module.exports = {
     'prop-types': 'prop-types',
     'aphrodite': 'aphrodite',
     'aphrodite/no-important': 'aphrodite/no-important',
-    'shader': 'shader'
+    'shader': 'shader',
+    'color-props': 'color-props'
   },
   plugins: plugins
 }

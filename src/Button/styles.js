@@ -1,5 +1,7 @@
 import * as colors from '../globals/colors'
 
+import colorProps from 'color-props'
+
 import { StyleSheet } from 'aphrodite/no-important'
 
 function buttonGenerator (backgroundColor, borderColor, otherStyles = {}) {
@@ -37,11 +39,12 @@ function buttonGenerator (backgroundColor, borderColor, otherStyles = {}) {
   }, otherStyles)
 }
 
-function lightButtonGenerator (backgroundColor, borderColor, otherStyles = {}) {
-  borderColor = borderColor || backgroundColor.default
+function lightButtonGenerator (backgroundColor, otherStyles = {}) {
+  const bgProp = colorProps(backgroundColor.brighter)
+
   return Object.assign({}, {
     display: 'flex',
-    border: `3px solid ${borderColor}`,
+    border: `1px solid ${backgroundColor.default}`,
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
@@ -57,19 +60,14 @@ function lightButtonGenerator (backgroundColor, borderColor, otherStyles = {}) {
     transition: 'all 0.25s linear',
     background: 'none',
     ':hover': {
-      backgroundColor: backgroundColor.brighter,
-      border: `3px solid ${backgroundColor.brighter}`,
-      color: colors.white.default
+      backgroundColor: `rgba(${bgProp.r}, ${bgProp.g}, ${bgProp.b}, 0.3)`
     },
     ':focus': {
       outline: 'none',
-      border: `3px solid ${backgroundColor.brighter}`,
-      color: backgroundColor.brighter
+      backgroundColor: `rgba(${bgProp.r}, ${bgProp.g}, ${bgProp.b}, 0.3)`
     },
     ':active': {
-      backgroundColor: backgroundColor.darker,
-      border: `3px solid ${backgroundColor.darker}`,
-      color: colors.white.default
+      backgroundColor: `rgba(${bgProp.r}, ${bgProp.g}, ${bgProp.b}, 0.7)`
     }
   }, otherStyles)
 }

@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "aphrodite": "^1.2.1",
+    "color-props": "^0.0.3",
     "shader": "^0.1.3"
   },
   "repository": {
