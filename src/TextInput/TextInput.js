@@ -9,15 +9,23 @@ import defaultStyles from './styles'
 import Icon from '../Icon'
 
 class TextInput extends Component {
+  constructor () {
+    super()
+    this.setInputIcon = this.setInputIcon.bind(this)
+  }
+
   setInputIcon () {
     const { icon, style, className } = this.props
     if (typeof icon === typeof '') {
       return (
-        <Icon className={css(defaultStyles.icon)} name={this.props.icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} color={className === 'active' ? 'inactive' : className} />
+        <div className={css(defaultStyles.icon)}>
+          <Icon name={icon} style={style && style.fontSize && { height: style.fontSize, width: style.fontSize }} color={className === 'active' ? 'inactive' : className} />
+        </div>
       )
     }
     return React.cloneElement(icon, { appearance: 'input' })
   }
+
   render () {
     const { className, disabled, style } = this.props
     const passedProps = {
