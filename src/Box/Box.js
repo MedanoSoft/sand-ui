@@ -72,4 +72,9 @@ Box.propTypes = {
 Box.defaultProps = {
   xs: 0
 }
+
+Box.contextTypes = {
+  colors: PropTypes.object
+}
+
 export default Box

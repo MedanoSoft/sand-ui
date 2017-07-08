@@ -4,15 +4,15 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class Switch extends Component {
-  constructor (props) {
+  constructor (props, context) {
     super(props)
     this.state = {
       status: this.props.status
     }
-
+    this.stylesheet = styleGenerator(context.colors)
     this.changeStatus = this.changeStatus.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -37,11 +37,11 @@ class Switch extends Component {
     delete (passedProps.status)
     delete (passedProps.onChange)
     return (
-      <figure className={css(defaultStyles.container)} onClick={this.changeStatus}>
-        <div className={css(defaultStyles.flipper, this.state.status ? defaultStyles.flipperOn : defaultStyles.flipperOff)}>
-          <span className={css(defaultStyles.on)}>ON</span>
-          <input {...passedProps} type='checkbox' checked={status} className={css(defaultStyles.ball, this.state.status ? defaultStyles.ballOn : defaultStyles.ballOff)} onChange={this.handleChange} />
-          <span className={css(defaultStyles.off)}>OFF</span>
+      <figure className={css(this.stylesheet.container)} onClick={this.changeStatus}>
+        <div className={css(this.stylesheet.flipper, this.state.status ? this.stylesheet.flipperOn : this.stylesheet.flipperOff)}>
+          <span className={css(this.stylesheet.on)}>ON</span>
+          <input {...passedProps} type='checkbox' checked={status} className={css(this.stylesheet.ball, this.state.status ? this.stylesheet.ballOn : this.stylesheet.ballOff)} onChange={this.handleChange} />
+          <span className={css(this.stylesheet.off)}>OFF</span>
         </div>
       </figure>
     )
@@ -56,6 +56,10 @@ Switch.propTypes = {
 
 Switch.defaultProps = {
   status: true
+}
+
+Switch.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Switch

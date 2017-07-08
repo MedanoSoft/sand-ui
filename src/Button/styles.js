@@ -1,5 +1,3 @@
-import * as colors from '../globals/colors'
-
 import colorProps from 'color-props'
 
 import { StyleSheet } from 'aphrodite/no-important'
@@ -72,19 +70,21 @@ function lightButtonGenerator (backgroundColor, otherStyles = {}) {
   }, otherStyles)
 }
 
-export default StyleSheet.create({
-  active: buttonGenerator(colors.secondary),
-  success: buttonGenerator(colors.green),
-  warning: buttonGenerator(colors.yellow),
-  danger: buttonGenerator(colors.red),
-  inverse: buttonGenerator(colors.primary),
-  disabled: buttonGenerator(colors.gray, colors.gray.default, { cursor: 'default' }),
-  info: buttonGenerator(colors.blue),
-  'light-active': lightButtonGenerator(colors.secondary),
-  'light-success': lightButtonGenerator(colors.green),
-  'light-warning': lightButtonGenerator(colors.yellow),
-  'light-danger': lightButtonGenerator(colors.red),
-  'light-inverse': lightButtonGenerator(colors.primary),
-  'light-disabled': lightButtonGenerator(colors.gray, colors.gray.default, { cursor: 'default' }),
-  'light-info': lightButtonGenerator(colors.blue)
-})
+export default function (colorscheme) {
+  return StyleSheet.create({
+    active: buttonGenerator(colorscheme.secondary),
+    success: buttonGenerator(colorscheme.green),
+    warning: buttonGenerator(colorscheme.yellow),
+    danger: buttonGenerator(colorscheme.red),
+    inverse: buttonGenerator(colorscheme.primary),
+    disabled: buttonGenerator(colorscheme.gray, colorscheme.gray.default, { cursor: 'default' }),
+    info: buttonGenerator(colorscheme.blue),
+    'light-active': lightButtonGenerator(colorscheme.secondary),
+    'light-success': lightButtonGenerator(colorscheme.green),
+    'light-warning': lightButtonGenerator(colorscheme.yellow),
+    'light-danger': lightButtonGenerator(colorscheme.red),
+    'light-inverse': lightButtonGenerator(colorscheme.primary),
+    'light-disabled': lightButtonGenerator(colorscheme.gray, colorscheme.gray.default, { cursor: 'default' }),
+    'light-info': lightButtonGenerator(colorscheme.blue)
+  })
+}

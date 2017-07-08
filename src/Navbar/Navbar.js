@@ -4,27 +4,29 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class Navbar extends Component {
-  constructor () {
-    super()
+  constructor (props, context) {
+    super(props)
+
+    this.stylesheet = styleGenerator(context.colors)
     this.setSearchbar = this.setSearchbar.bind(this)
   }
 
   setSearchbar () {
     const { placeholder } = this.props
     return (
-      <form className={css(defaultStyles.searchbar)} onSubmit={(e) => { e.preventDefault(); this.props.onSearch(this.searchInput.value) }}>
-        <input className={css(defaultStyles.searchInput)} type='search' placeholder={placeholder} ref={(input) => this.searchInput = input} />
+      <form className={css(this.stylesheet.searchbar)} onSubmit={(e) => { e.preventDefault(); this.props.onSearch(this.searchInput.value) }}>
+        <input className={css(this.stylesheet.searchInput)} type='search' placeholder={placeholder} ref={(input) => this.searchInput = input} />
       </form>
     )
   }
   render () {
     const { title, middle, right } = this.props
     return (
-      <nav className={css(defaultStyles.bar)}>
-        <header className={css(defaultStyles.title)}>{title}</header>
+      <nav className={css(this.stylesheet.bar)}>
+        <header className={css(this.stylesheet.title)}>{title}</header>
         {middle && (<div>{middle}</div>)}
         {this.props.searchbar && this.setSearchbar()}
         {right && (<div>{right}</div>)}
@@ -46,6 +48,10 @@ Navbar.defaultProps = {
   onSearch: () => {},
   searchbar: false,
   placeholder: 'Search'
+}
+
+Navbar.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Navbar

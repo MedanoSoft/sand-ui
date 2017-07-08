@@ -4,23 +4,24 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class Radio extends Component {
-  constructor (props) {
+  constructor (props, context) {
     super(props)
 
+    this.stylesheet = styleGenerator(context.colors)
     this.handleRadio = this.handleRadio.bind(this)
     this.setStyles = this.setStyles.bind(this)
   }
 
   setStyles () {
     if (this.props.checked) {
-      if (this.props.disabled) { return defaultStyles.disabledChecked }
-      return defaultStyles.active
+      if (this.props.disabled) { return this.stylesheet.disabledChecked }
+      return this.stylesheet.active
     } else {
-      if (this.props.disabled) { return defaultStyles.disabled }
-      return defaultStyles.inactive
+      if (this.props.disabled) { return this.stylesheet.disabled }
+      return this.stylesheet.inactive
     }
   }
 
@@ -35,9 +36,9 @@ class Radio extends Component {
     }
     delete (passedProps.children)
     return (
-      <label htmlFor={value} className={css(defaultStyles.wrapper)}>
+      <label htmlFor={value} className={css(this.stylesheet.wrapper)}>
         <input {...passedProps} className={css(this.setStyles())} type='radio' id={value} onChange={this.handleRadio} />
-        <span className={css(defaultStyles.text)}>{this.props.children}</span>
+        <span className={css(this.stylesheet.text)}>{this.props.children}</span>
       </label>
     )
   }
@@ -53,6 +54,10 @@ Radio.propTypes = {
 Radio.defaultProps = {
   name: 'defaultRadio',
   checked: false
+}
+
+Radio.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Radio

@@ -6,21 +6,14 @@ import { css } from 'aphrodite/no-important'
 
 import icons from './icons'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
-import {
-  primary,
-  secondary,
-  gray,
-  green,
-  yellow,
-  red
-} from '../globals/colors'
 
 class Icon extends Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
 
+    this.stylesheet = styleGenerator()
     this.getSVG = this.getSVG.bind(this)
     this.setColor = this.setColor.bind(this)
   }
@@ -33,6 +26,15 @@ class Icon extends Component {
 
   setColor () {
     const { color } = this.props
+    const {
+      primary,
+      secondary,
+      gray,
+      green,
+      yellow,
+      red
+    } = this.context.colors
+
     switch (color) {
       case 'active':
         return secondary.default
@@ -65,7 +67,7 @@ class Icon extends Component {
     delete (passedProps.color)
     delete (passedProps.size)
     return (
-      <svg {...passedProps} width={this.props.size} className={css(defaultStyles.default)} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' aria-labelledby='title'>
+      <svg {...passedProps} width={this.props.size} className={css(this.stylesheet.default)} xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' aria-labelledby='title'>
         <title>{name}</title>
         {svg.map((path, i) => (<path key={i} fill={color} d={path} />))}
       </svg>
@@ -80,6 +82,10 @@ Icon.propTypes = {
 
 Icon.defaultProps = {
   color: 'active'
+}
+
+Icon.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Icon

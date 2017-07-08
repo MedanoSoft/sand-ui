@@ -4,18 +4,20 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 import Icon from '../Icon'
 
 class Pagination extends Component {
-  constructor (props) {
+  constructor (props, context) {
     super(props)
 
     this.state = {
       active: props.active
     }
 
+    this.stylesheet = styleGenerator(context.colors)
+    this.listCreator = this.listCreator.bind(this)
     this.defaultList = this.defaultList.bind(this)
     this.setPages = this.setPages.bind(this)
     this.handlePagination = this.handlePagination.bind(this)
@@ -31,7 +33,7 @@ class Pagination extends Component {
 
   listCreator (index) {
     return (
-      <li key={index} tabIndex={0} className={css(defaultStyles.list)} onClick={() => this.handlePagination(index)}>
+      <li key={index} tabIndex={0} className={css(this.stylesheet.list)} onClick={() => this.handlePagination(index)}>
         <span>{index}</span>
       </li>
     )
@@ -39,7 +41,7 @@ class Pagination extends Component {
 
   defaultList () {
     return (
-      <li tabIndex={0} className={css(defaultStyles.list)} onClick={this.handlePagination}>
+      <li tabIndex={0} className={css(this.stylesheet.list)} onClick={this.handlePagination}>
         <span>All</span>
       </li>
     )
@@ -66,13 +68,13 @@ class Pagination extends Component {
         // In the middle of the list
         for (let i = 1; i < 3; i++) { list.push(this.listCreator(i)) }
         list.push(( // Separator 1
-          <li className={css(defaultStyles.list)} key='middledots1'>
+          <li className={css(this.stylesheet.list)} key='middledots1'>
             <span>...</span>
           </li>
         ))
         for (let i = active - 1; i < active + 2; i++) { list.push(this.listCreator(i)) }
         list.push(( // Separator 2
-          <li className={css(defaultStyles.list)} key='middledots2'>
+          <li className={css(this.stylesheet.list)} key='middledots2'>
             <span>...</span>
           </li>
         ))
@@ -82,7 +84,7 @@ class Pagination extends Component {
         for (let i = 1; i < 8; i++) { list.push(this.listCreator(i)) }
 
         list.push(( // Separator
-          <li className={css(defaultStyles.list)} key='middledots'>
+          <li className={css(this.stylesheet.list)} key='middledots'>
             <span>...</span>
           </li>
         ))
@@ -101,12 +103,12 @@ class Pagination extends Component {
     const { pages } = this.props
     return (
       <nav role='navigation'>
-        <ul className={css(defaultStyles.container)}>
-          <li className={css(defaultStyles.list, defaultStyles.back)} tabIndex={0} onClick={this.props.onLeftClick}>
+        <ul className={css(this.stylesheet.container)}>
+          <li className={css(this.stylesheet.list, this.stylesheet.back)} tabIndex={0} onClick={this.props.onLeftClick}>
             <Icon name='chevron-left' color='white' size='1rem' />
           </li>
           {pages === 0 ? this.defaultList() : this.setPages()}
-          <li className={css(defaultStyles.list, defaultStyles.next)} tabIndex={0} onClick={this.props.onRightClick}>
+          <li className={css(this.stylesheet.list, this.stylesheet.next)} tabIndex={0} onClick={this.props.onRightClick}>
             <Icon name='chevron-right' color='white' />
           </li>
         </ul>
@@ -125,6 +127,10 @@ Pagination.propTypes = {
 
 Pagination.defaultProps = {
   pages: 0
+}
+
+Pagination.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Pagination

@@ -16,41 +16,45 @@ function checkboxGenerator (backgroundColor, otherStyles = {}) {
   }, otherStyles)
 }
 
-export default StyleSheet.create({
-  wrapper: {
-    margin: '7px 15px',
-    color: font,
-    fontSize: 16,
-    minHeight: 30,
-    display: 'block'
-  },
-  active: checkboxGenerator(secondary, {
-    ':after': {
-      position: 'absolute',
-      content: '"✓"',
-      color: white.default,
-      marginLeft: 5,
-      marginTop: 2,
-      fontSize: 12
+export default function(colorscheme) {
+  const { gray, font, secondary, white } = colorscheme
+
+  return StyleSheet.create({
+    wrapper: {
+      margin: '7px 15px',
+      color: font,
+      fontSize: 16,
+      minHeight: 30,
+      display: 'block'
+    },
+    active: checkboxGenerator(secondary, {
+      ':after': {
+        position: 'absolute',
+        content: '"✓"',
+        color: white.default,
+        marginLeft: 5,
+        marginTop: 2,
+        fontSize: 12
+      }
+    }),
+    inactive: checkboxGenerator(gray),
+    disabled: checkboxGenerator(gray, {
+      cursor: 'default'
+    }),
+    disabledChecked: checkboxGenerator(gray, {
+      cursor: 'default',
+      ':after': {
+        position: 'absolute',
+        content: '"✓"',
+        color: white.default,
+        marginLeft: 5,
+        marginTop: 2,
+        fontSize: 12
+      }
+    }),
+    text: {
+      position: 'relative',
+      top: -8
     }
-  }),
-  inactive: checkboxGenerator(gray),
-  disabled: checkboxGenerator(gray, {
-    cursor: 'default'
-  }),
-  disabledChecked: checkboxGenerator(gray, {
-    cursor: 'default',
-    ':after': {
-      position: 'absolute',
-      content: '"✓"',
-      color: white.default,
-      marginLeft: 5,
-      marginTop: 2,
-      fontSize: 12
-    }
-  }),
-  text: {
-    position: 'relative',
-    top: -8
-  }
-})
+  })
+}

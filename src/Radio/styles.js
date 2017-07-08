@@ -1,5 +1,3 @@
-import { gray, font, secondary } from '../globals/colors'
-
 import { StyleSheet } from 'aphrodite/no-important'
 
 function radioGenerator (backgroundColor, otherStyles = {}) {
@@ -33,48 +31,51 @@ function radioGenerator (backgroundColor, otherStyles = {}) {
   }, otherStyles)
 }
 
-export default StyleSheet.create({
-  wrapper: {
-    margin: '7px 15px',
-    color: font,
-    fontSize: 16,
-    minHeight: 30,
-    display: 'block'
-  },
-  active: radioGenerator(secondary),
-  inactive: radioGenerator(gray, {
-    ':after': {
-      opacity: 0
+export default function(colorscheme) {
+  const { gray, font, secondary } = colorscheme
+  return StyleSheet.create({
+    wrapper: {
+      margin: '7px 15px',
+      color: font,
+      fontSize: 16,
+      minHeight: 30,
+      display: 'block'
     },
-    ':hover': {
-      border: `3px solid ${gray.default}`,
+    active: radioGenerator(secondary),
+    inactive: radioGenerator(gray, {
       ':after': {
-        opacity: 1,
-        position: 'absolute',
-        content: '""',
-        width: 5,
-        height: 5,
-        margin: '7px',
-        backgroundColor: gray.default,
-        transform: 'translate(-50%, -50%)',
-        border: `1px solid ${gray.default}`,
-        borderRadius: '100%'
+        opacity: 0
+      },
+      ':hover': {
+        border: `3px solid ${gray.default}`,
+        ':after': {
+          opacity: 1,
+          position: 'absolute',
+          content: '""',
+          width: 5,
+          height: 5,
+          margin: '7px',
+          backgroundColor: gray.default,
+          transform: 'translate(-50%, -50%)',
+          border: `1px solid ${gray.default}`,
+          borderRadius: '100%'
+        }
       }
+    }),
+    disabled: radioGenerator(gray, {
+      cursor: 'default',
+      backgroundColor: gray.brighter,
+      ':after': {
+        opacity: 0
+      }
+    }),
+    disabledChecked: radioGenerator(gray, {
+      cursor: 'default',
+      backgroundColor: gray.brighter
+    }),
+    text: {
+      position: 'relative',
+      top: -8
     }
-  }),
-  disabled: radioGenerator(gray, {
-    cursor: 'default',
-    backgroundColor: gray.brighter,
-    ':after': {
-      opacity: 0
-    }
-  }),
-  disabledChecked: radioGenerator(gray, {
-    cursor: 'default',
-    backgroundColor: gray.brighter
-  }),
-  text: {
-    position: 'relative',
-    top: -8
-  }
-})
+  })
+}

@@ -4,14 +4,19 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class ProgressBar extends Component {
+  constructor(props, context) {
+    super(props)
+
+    this.stylesheet = styleGenerator(context.colors)
+  }
   render () {
     const { percent, type } = this.props
     return (
-      <div className={css(defaultStyles.wrapper)}>
-        <div className={css(defaultStyles[type])} style={{width: `${percent}%`}} />
+      <div className={css(this.stylesheet.wrapper)}>
+        <div className={css(this.stylesheet[type])} style={{width: `${percent}%`}} />
       </div>
     )
   }
@@ -25,6 +30,10 @@ ProgressBar.propTypes = {
 ProgressBar.defaultProps = {
   percent: 25,
   type: 'default'
+}
+
+ProgressBar.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default ProgressBar

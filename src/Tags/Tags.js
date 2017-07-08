@@ -2,19 +2,19 @@ import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 import { css } from 'aphrodite/no-important'
 
 import uidCreator from '../utils/uid'
 
 class Tags extends Component {
-  constructor (props) {
+  constructor (props, context) {
     super(props)
     this.state = {
       values: props.values
     }
-
+    this.stylesheet = styleGenerator(context.colors)
     this.deleteTag = this.deleteTag.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.setDatalist = this.setDatalist.bind(this)
@@ -77,15 +77,15 @@ class Tags extends Component {
     delete (passedProps.list)
 
     return (
-      <section {...passedProps} className={css(defaultStyles.wrapper)}>
+      <section {...passedProps} className={css(this.stylesheet.wrapper)}>
         {this.props.list && this.setDatalist(uid)}
         {values.map((tag, i) => (
-          <span key={i} className={css(defaultStyles.label)} onClick={() => this.deleteTag(i)}>{tag}</span>
+          <span key={i} className={css(this.stylesheet.label)} onClick={() => this.deleteTag(i)}>{tag}</span>
         ))}
-        <form onSubmit={this.handleSubmit} className={css(defaultStyles.form)}>
+        <form onSubmit={this.handleSubmit} className={css(this.stylesheet.form)}>
           <input
             type='text'
-            className={css(defaultStyles.input)}
+            className={css(this.stylesheet.input)}
             list={this.props.list ? uid : undefined}
             ref={(input) => this.input = input} />
         </form>
@@ -102,6 +102,10 @@ Tags.propTypes = {
 
 Tags.defaultProps = {
   values: []
+}
+
+Tags.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Tags

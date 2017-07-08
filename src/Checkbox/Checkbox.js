@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class Checkbox extends Component {
-  constructor (props) {
+  constructor (props, context) {
     super(props)
+
+    this.stylesheet = styleGenerator(context.colors)
 
     this.state = {
       checked: this.props.checked
@@ -20,11 +22,11 @@ class Checkbox extends Component {
 
   setStyles () {
     if (this.state.checked) {
-      if (this.props.disabled) { return defaultStyles.disabledChecked }
-      return defaultStyles.active
+      if (this.props.disabled) { return this.stylesheet.disabledChecked }
+      return this.stylesheet.active
     } else {
-      if (this.props.disabled) { return defaultStyles.disabled }
-      return defaultStyles.inactive
+      if (this.props.disabled) { return this.stylesheet.disabled }
+      return this.stylesheet.inactive
     }
   }
 
@@ -39,9 +41,9 @@ class Checkbox extends Component {
     const { name } = this.props
 
     return (
-      <label htmlFor={name} className={css(defaultStyles.wrapper)}>
+      <label htmlFor={name} className={css(this.stylesheet.wrapper)}>
         <input {...this.props} className={css(this.setStyles())} checked={this.state.checked} id={name.replace(' ', '-')} type='checkbox' onChange={this.handleCheckbox} />
-        <span className={css(defaultStyles.text)}>{name}</span>
+        <span className={css(this.stylesheet.text)}>{name}</span>
       </label>
     )
   }
@@ -56,6 +58,10 @@ Checkbox.propTypes = {
 Checkbox.defaultProps = {
   value: 'on',
   checked: false
+}
+
+Checkbox.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Checkbox

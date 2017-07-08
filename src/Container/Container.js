@@ -4,42 +4,44 @@ import PropTypes from 'prop-types'
 
 import { css } from 'aphrodite/no-important'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 class Container extends Component {
-  constructor () {
-    super()
-
+  constructor (props, context) {
+    super(props)
+    this.stylesheet = styleGenerator(context.colors)
+    this.setDistribution = this.setDistribution.bind(this)
+    this.setAlignment = this.setAlignment.bind(this)
     this.setCSS = this.setCSS.bind(this)
   }
 
   setDistribution (distribution, size) {
     switch (distribution) {
       case 'start':
-        return defaultStyles[`start${size.toUpperCase()}`]
+        return this.stylesheet[`start${size.toUpperCase()}`]
       case 'center':
-        return defaultStyles[`center${size.toUpperCase()}`]
+        return this.stylesheet[`center${size.toUpperCase()}`]
       case 'end':
-        return defaultStyles[`end${size.toUpperCase()}`]
+        return this.stylesheet[`end${size.toUpperCase()}`]
       case 'around':
-        return defaultStyles[`around${size.toUpperCase()}`]
+        return this.stylesheet[`around${size.toUpperCase()}`]
       case 'between':
-        return defaultStyles[`between${size.toUpperCase()}`]
+        return this.stylesheet[`between${size.toUpperCase()}`]
       default:
-        return defaultStyles[`around${size.toUpperCase()}`]
+        return this.stylesheet[`around${size.toUpperCase()}`]
     }
   }
 
   setAlignment (align, size) {
     switch (align) {
       case 'top':
-        return defaultStyles[`top${size.toUpperCase()}`]
+        return this.stylesheet[`top${size.toUpperCase()}`]
       case 'middle':
-        return defaultStyles[`middle${size.toUpperCase()}`]
+        return this.stylesheet[`middle${size.toUpperCase()}`]
       case 'bottom':
-        return defaultStyles[`bottom${size.toUpperCase()}`]
+        return this.stylesheet[`bottom${size.toUpperCase()}`]
       default:
-        return defaultStyles[`top${size.toUpperCase()}`]
+        return this.stylesheet[`top${size.toUpperCase()}`]
     }
   }
 
@@ -57,12 +59,12 @@ class Container extends Component {
     } = this.props
 
     return css(
-      defaultStyles.container,
-      direction === 'row' ? defaultStyles.row : defaultStyles.column,
-      this.props.fluid && defaultStyles.fluid,
+      this.stylesheet.container,
+      direction === 'row' ? this.stylesheet.row : this.stylesheet.column,
+      this.props.fluid && this.stylesheet.fluid,
       this.props.reverse && direction === 'row'
-      ? defaultStyles.rowReverse
-      : defaultStyles.columnReverse,
+      ? this.stylesheet.rowReverse
+      : this.stylesheet.columnReverse,
       this.setDistribution(dist, 'xs'),
       this.setDistribution(smDist, 'sm'),
       this.setDistribution(mdDist, 'md'),
@@ -115,6 +117,10 @@ Container.defaultProps = {
   fluid: false,
   dist: 'around',
   align: 'top'
+}
+
+Container.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Container

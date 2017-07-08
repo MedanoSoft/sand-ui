@@ -1,5 +1,3 @@
-import { gray, lightGray, secondary, font, green, red } from '../globals/colors'
-
 import { StyleSheet } from 'aphrodite'
 
 function inputGenerator (color, otherStyles = {}) {
@@ -32,35 +30,38 @@ function inputGenerator (color, otherStyles = {}) {
   }, otherStyles)
 }
 
-export default StyleSheet.create({
-  active: inputGenerator(gray, {
-    color: font,
-    ':focus': {
-      outline: 'none',
-      border: `2px solid ${secondary.default}`
+export default function (colorscheme) {
+  const { gray, lightGray, secondary, font, green, red } = colorscheme
+  return StyleSheet.create({
+    active: inputGenerator(gray, {
+      color: font,
+      ':focus': {
+        outline: 'none',
+        border: `2px solid ${secondary.default}`
+      }
+    }),
+    success: inputGenerator(green),
+    error: inputGenerator(red),
+    disabled: inputGenerator(gray, {
+      backgroundColor: lightGray.default
+    }),
+    leftIcon: {
+      textIndent: '2.2em'
+    },
+    icon: {
+      marginLeft: '-99%',
+      width: '1.5em',
+      display: 'inline',
+      position: 'relative'
+    },
+    wrapper: {
+      width: '100%',
+      height: 'auto',
+      display: 'flex',
+      justifyContent: 'flex-start',
+      flexDirection: 'row',
+      flexWrap: 'no-wrap',
+      alignItems: 'center'
     }
-  }),
-  success: inputGenerator(green),
-  error: inputGenerator(red),
-  disabled: inputGenerator(gray, {
-    backgroundColor: lightGray.default
-  }),
-  leftIcon: {
-    textIndent: '2.2em'
-  },
-  icon: {
-    marginLeft: '-99%',
-    width: '1.5em',
-    display: 'inline',
-    position: 'relative'
-  },
-  wrapper: {
-    width: '100%',
-    height: 'auto',
-    display: 'flex',
-    justifyContent: 'flex-start',
-    flexDirection: 'row',
-    flexWrap: 'no-wrap',
-    alignItems: 'center'
-  }
-})
+  })
+}

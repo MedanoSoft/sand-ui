@@ -2,20 +2,21 @@ import React, { Component } from 'react'
 
 import PropTypes from 'prop-types'
 
-import defaultStyles from './styles'
+import styleGenerator from './styles'
 
 import { css } from 'aphrodite/no-important'
 
 class Select extends Component {
-  constructor () {
-    super()
+  constructor (props, context) {
+    super(props)
 
+    this.stylesheet = styleGenerator(context.colors)
     this.setOptions = this.setOptions.bind(this)
   }
 
   setOptions () {
     return this.props.options.map((node, i) => (
-      <option key={i} className={css(defaultStyles.item)} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
+      <option key={i} className={css(this.stylesheet.item)} value={(typeof node === typeof {}) ? node.value : node}>{node.name || node}</option>
 		))
   }
 
@@ -27,7 +28,7 @@ class Select extends Component {
     delete (passedProps.options)
 
     return (
-      <select {...passedProps} name={name} className={css(defaultStyles.caption)}>
+      <select {...passedProps} name={name} className={css(this.stylesheet.caption)}>
         {this.setOptions()}
       </select>
     )
@@ -41,6 +42,10 @@ Select.propTypes = {
 
 Select.defaultProps = {
   options: []
+}
+
+Select.contextTypes = {
+  colors: PropTypes.object
 }
 
 export default Select
