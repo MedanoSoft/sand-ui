@@ -6,11 +6,8 @@ import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
-
-
 class Button extends Component {
-
-  constructor(props, context) {
+  constructor (props, context) {
     super(props)
     this.stylesheet = styleGenerator(context.colors)
   }

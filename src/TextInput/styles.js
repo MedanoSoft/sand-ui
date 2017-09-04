@@ -60,7 +60,7 @@ export default function (colorscheme) {
       display: 'flex',
       justifyContent: 'flex-start',
       flexDirection: 'row',
-      flexWrap: 'no-wrap',
+      flexWrap: 'nowrap',
       alignItems: 'center'
     }
   })

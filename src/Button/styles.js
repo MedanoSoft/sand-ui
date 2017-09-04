@@ -10,7 +10,7 @@ function buttonGenerator (backgroundColor, borderColor, otherStyles = {}) {
     width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    flexWrap: 'no-wrap',
+    flexWrap: 'nowrap',
     height: 'auto',
     boxSizing: 'border-box',
     borderRadius: '10px',

@@ -7,7 +7,7 @@ export default StyleSheet.create({
     boxSizing: 'border-box',
     flex: '0 0 auto',
     paddingRight: '0.5rem',
-    paddingReft: '0.5rem'
+    paddingLeft: '0.5rem'
   },
   colXS0: colXSGenerator({
     flexGrow: 1,
@@ -411,7 +411,7 @@ function colXSGenerator (otherStyles = {}) {
     boxSizing: 'border-box',
     flex: '0 0 auto',
     paddingRight: '0.5rem',
-    paddingReft: '0.5rem'
+    paddingLeft: '0.5rem'
   }, otherStyles)
 }
 

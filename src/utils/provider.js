@@ -5,14 +5,15 @@ import PropTypes from 'prop-types'
 import defaultColors, { colorBrightandDark } from '../globals/colors'
 
 class UIProvider extends Component {
-  getChildContext() {
-
+  getChildContext () {
     const colorscheme = {...defaultColors}
 
-    Object.keys(this.props.theme)
+    const theme = this.props
+
+    Object.keys(theme)
     .filter(key => Object.keys(defaultColors).includes(key))
     .forEach(colorName => {
-      colorscheme[colorName] = colorBrightandDark(this.props.theme[colorName])
+      colorscheme[colorName] = colorBrightandDark(theme[colorName])
     })
 
     return {
@@ -33,5 +34,12 @@ UIProvider.childContextTypes = {
   colors: PropTypes.object
 }
 
+UIProvider.propTypes = {
+  theme: PropTypes.object
+}
+
+UIProvider.defaultProps = {
+  theme: {}
+}
 
 export default UIProvider

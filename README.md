@@ -29,6 +29,41 @@ import { Button } from 'sand-ui';
 
 ```
 
+But to make it work, you need to wrap your App inside the `UIProvider`, like:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { UIProvider } from 'sand-ui';
+import App from './App';
+
+ReactDOM.render(
+  <UIProvider theme={{primary: '#AAA'}}>
+    <App />
+  </UIProvider>,
+  document.getElementById('root')
+);
+
+```
+
+You can also pass an object as theme prop to change default colors of Sand-UI, the object structure for colors is:
+
+```
+{
+  primary: '#34495E',
+  secondary: '#1ABC9C',
+  font: '#02222B',
+  white: '#FFFFFF',
+  lightGray: '#EEEEEE',
+  green: '#53DF83',
+  navy: '#074354',
+  orange: '#F69C00',
+  yellow: '#F5C700',
+  red: '#EF4836',
+  blue: '#47D2E9',
+  gray: '#bdc3c7'
+}
+```
 
 ## Components
 
@@ -472,7 +507,7 @@ class InputExample extends React.Component {
   render() {
     const { value } = this.state;
     return (
-      <TextInput placeholder="Jane Doe" className="text" value={value} onChange={this.handleChange} />
+      <TextInput placeholder="Jane Doe" type="text" value={value} onChange={this.handleChange} />
     );
   }
 }
