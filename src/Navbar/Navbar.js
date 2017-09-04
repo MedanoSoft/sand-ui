@@ -24,8 +24,15 @@ class Navbar extends Component {
   }
   render () {
     const { title, middle, right } = this.props
+    const passedProps = { ...this.props }
+    delete (passedProps.title)
+    delete (passedProps.middle)
+    delete (passedProps.right)
+    delete (passedProps.placeholder)
+    delete (passedProps.searchbar)
+    delete (passedProps.onSearch)
     return (
-      <nav className={css(this.stylesheet.bar)}>
+      <nav {...passedProps} className={css(this.stylesheet.bar)}>
         <header className={css(this.stylesheet.title)}>{title}</header>
         {middle && (<div>{middle}</div>)}
         {this.props.searchbar && this.setSearchbar()}

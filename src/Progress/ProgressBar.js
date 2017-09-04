@@ -7,15 +7,18 @@ import { css } from 'aphrodite/no-important'
 import styleGenerator from './styles'
 
 class ProgressBar extends Component {
-  constructor(props, context) {
+  constructor (props, context) {
     super(props)
 
     this.stylesheet = styleGenerator(context.colors)
   }
   render () {
     const { percent, type } = this.props
+    const passedProps = { ...this.props }
+    delete (passedProps.percent)
+    delete (passedProps.type)
     return (
-      <div className={css(this.stylesheet.wrapper)}>
+      <div {...passedProps} className={css(this.stylesheet.wrapper)}>
         <div className={css(this.stylesheet[type])} style={{width: `${percent}%`}} />
       </div>
     )
