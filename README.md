@@ -1,6 +1,8 @@
 # Sand-UI
 [![npm](https://img.shields.io/npm/v/sand-ui.svg?style=flat-square)](https://www.npmjs.com/package/sand-ui) [![npm](https://img.shields.io/npm/dm/sand-ui.svg?style=flat-square)](https://www.npmjs.com/package/sand-ui) [![GitHub issues](https://img.shields.io/github/issues/MedanoSoft/sand-ui.svg?style=flat-square)]()
 
+![Sand-UI-Logo](http://i.imgur.com/ToGDWOY.png)
+
 UI library for [React](https://facebook.github.io/react) based on [Flat UI](http://designmodo.github.io/Flat-UI/) style.
 
 
