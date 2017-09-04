@@ -8,7 +8,7 @@ class UIProvider extends Component {
   getChildContext () {
     const colorscheme = {...defaultColors}
 
-    const theme = this.props
+    const { theme } = this.props
 
     Object.keys(theme)
     .filter(key => Object.keys(defaultColors).includes(key))
