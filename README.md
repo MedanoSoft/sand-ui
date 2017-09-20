@@ -20,7 +20,7 @@ npm install sand-ui --save
 
 After installation you can get components from `sand-ui` library:
 
-```
+```jsx
 // require modules (CommonJS)
 
 const sand = require('sand-ui');
@@ -33,7 +33,7 @@ import { Button } from 'sand-ui';
 
 But to make it work, you need to wrap your App inside the `UIProvider`, like:
 
-```
+```jsx
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { UIProvider } from 'sand-ui';
@@ -50,7 +50,7 @@ ReactDOM.render(
 
 You can also pass an object as theme prop to change default colors of Sand-UI, the object structure for colors is:
 
-```
+```js
 {
   primary: '#34495E',
   secondary: '#1ABC9C',
@@ -78,7 +78,7 @@ Just like any button, excepting you can pass a link to it.
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Button } from 'sand-ui';
 
@@ -108,7 +108,7 @@ Checkbox and label, all in one.
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Checkbox } from 'sand-ui';
 
@@ -142,7 +142,7 @@ class CheckboxExample extends React.Component {
 
 List of items like a list-menu, Dropdown is not the same as Select component. Pass an array of items to list prop, it needs to be a list of strings, elements or objects like:
 
-```
+```js
 {
   name: 'One', // (string) item name
   link: 'https://github.com/MedanoSoft/sand-ui', // (string) url to link this item
@@ -154,7 +154,7 @@ List of items like a list-menu, Dropdown is not the same as Select component. Pa
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Dropdown } from 'sand-ui';
 
@@ -199,7 +199,7 @@ This icon component uses SVG icons from [Linearicons](https://linearicons.com/fr
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Icon } from 'sand-ui';
 
@@ -230,7 +230,7 @@ Simple, horizontal nav component with searchbar.
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Navbar } from 'sand-ui';
 
@@ -275,7 +275,7 @@ Navigation with this simple pagination component.
 
 **Example**
 
-```
+```jsx
 import React, { Component } from 'react';
 import { Pagination } from 'sand-ui';
 
@@ -303,7 +303,7 @@ Horizontal light bar for showing progress.
 
 **Example**
 
-```
+```jsx
 import React, { Component } from 'react';
 import { Progress } from 'sand-ui';
 
@@ -332,7 +332,7 @@ Radio buttons with labels.
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Radio } from 'sand-ui';
 
@@ -382,7 +382,7 @@ This is a stylished form of `<input type="range" />` see [MDN documentation](htt
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Slider } from 'sand-ui';
 
@@ -409,7 +409,7 @@ Use a switch if you need a playful component for a boolean input value.
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Switch } from 'sand-ui';
 
@@ -455,7 +455,7 @@ For multiple input strings, Tags component! :smile:
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { Tags } from 'sand-ui';
 
@@ -485,7 +485,7 @@ Simple styled text input. Available for any text-like input if you describe it a
 
 **Example**
 
-```
+```jsx
 import React from 'react';
 import { TextInput } from 'sand-ui';
 
@@ -567,7 +567,7 @@ Component with flexible column size (selected from 1 to 12, auto if not defined)
 
 ### Example
 
-```
+```jsx
 import React from 'react';
 import { Container, Box } from 'sand-ui';
 
