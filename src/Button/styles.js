@@ -71,6 +71,7 @@ function lightButtonGenerator (backgroundColor, otherStyles = {}) {
 }
 
 export default function (colorscheme) {
+  colorscheme = colorscheme || require('../globals/colors').default
   return StyleSheet.create({
     active: buttonGenerator(colorscheme.secondary),
     success: buttonGenerator(colorscheme.green),

@@ -6,6 +6,9 @@ import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
+/**
+ * Just like any button, excepting you can pass a link to it
+ */
 class Button extends Component {
   constructor (props, context) {
     super(props)
@@ -20,31 +23,44 @@ class Button extends Component {
     delete (passedProps.link)
     delete (passedProps.light)
 
-    if (link) {
-      return (
-        <a {...passedProps} href={link} className={css(light ? this.stylesheet[`light-${type}`] : this.stylesheet[type])} role={'button'}>
-          {this.props.children}
-        </a>
-      )
-    }
-    return (
+    let component = link ? (
+      <a {...passedProps} href={link} className={css(light ? this.stylesheet[`light-${type}`] : this.stylesheet[type])} role={'button'}>
+        {this.props.children}
+      </a>
+    ) : (
       <button {...passedProps} className={css(light ? this.stylesheet[`light-${type}`] : this.stylesheet[type])}>
         {this.props.children}
       </button>
     )
+
+    return component
   }
 }
 
 Button.propTypes = {
-  type: PropTypes.string,
-  style: PropTypes.object,
+  /** 	Activate a light-style button */
+  light: PropTypes.bool.isRequired,
+  /** The same as anchor href */
   link: PropTypes.string,
-  light: PropTypes.bool.isRequired
+  /** Button label */
+  style: PropTypes.object,
+  /** Change button color depending on type */
+  type: PropTypes.oneOf([
+    'active', 
+    'info',
+    'inverse',
+    'success',
+    'warning',
+    'danger',
+    'disabled'
+  ])
 }
 
 Button.defaultProps = {
-  type: 'active',
-  light: false
+  light: false,
+  link: '',
+  style: {},
+  type: 'active'
 }
 
 Button.contextTypes = {
