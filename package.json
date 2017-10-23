@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest",
     "start": "webpack --env dev --watch",
-    "build": "webpack --env build"
+    "build": "webpack --env build",
+    "styleguide": "styleguidist server",
+    "styleguide:build": "styleguidist build"
   },
   "keywords": [
     "Design",
@@ -29,6 +31,7 @@
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
+    "react-styleguidist": "^6.0.31",
     "standard": "^10.0.2",
     "webpack": "^2.5.1",
     "yargs": "^8.0.1"
