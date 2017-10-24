@@ -222,7 +222,7 @@ class IconExample extends React.Component {
 | --------- | --------- | -----------------------    |
 | name      | String    | Icon name from Linearicons |
 | size      | String    | Define icon width          |
-| color     | String    | Color of the icon, you can use an hex color or use any of this words: `active`, `inactive`, `success`, `warning`, `danger`, `disabled`, `inverse`, for Flat UI colorscheme |
+| color     | String    | Color of the icon, you can use an hex color or use any of this words: `active`, `inactive`, `success`, `warning`, `danger`, `disabled`, `inverse`, `error`, for Flat UI colorscheme |
 
 ### Navbar
 
@@ -259,14 +259,15 @@ class NavbarExample extends React.Component {
 }
 ```
 
-| Props     | Type      | Description             |
-| --------- | --------- | ----------------------- |
-| title     | node      | Navbar header           |
-| middle    | node      | Element at the middle   |
-| right     | node      | Element at the right    |
-| searchbar | boolean   | Add a searchbar on the nav (default: `false`) |
-| onSearch  | function  | Called when user puts a line break (User hits Intro) |
-| style     | object    | Custom styles to add    |
+| Props        | Type      | Description             |
+| ---------    | --------- | ----------------------- |
+| title        | node      | Navbar header           |
+| middle       | node      | Element at the middle   |
+| right        | node      | Element at the right    |
+| searchbar    | boolean   | Add a searchbar on the nav (default: `false`) |
+| onSearch     | function  | Called when user puts a line break (User hits Intro) |
+| style        | object    | Custom styles to add    |
+| placeholder  | string    | Placeholder for insert in searchbar |
 
 
 ### Pagination
@@ -318,7 +319,7 @@ class ProgressExample extends Component {
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
 | type      | String    | Progress bar colorscheme. Available: `default`, `info`, `success`, `warning`, `danger`, `inverse` |
-| percent   | Number    | Percent of progress. Default: `15` |
+| percent   | Number    | Percent of progress. Default: `25` |
 | style     | object    | Custom styles to add    |
 
 
@@ -372,6 +373,7 @@ class RadioExample extends React.Component {
 | value     | String    | Value for radio button  |
 | checked   | boolean   | Select this radio       |
 | disabled  | boolean   | Disable button interaction |
+| onChange  | Function  | Called when radio change it's state |
 
 ### Select
 
@@ -401,6 +403,7 @@ class SliderExample extends React.Component {
 | --------- | --------- | ----------------------- |
 | step      | Number    | Range separation. Default: `1` |
 | style     | Object    | Custom styles to add    |
+| onChange  | Function  | Called when slider change it's state |
 
 
 ### Switch

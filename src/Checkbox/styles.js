@@ -17,8 +17,8 @@ function checkboxGenerator (backgroundColor, otherStyles = {}) {
 }
 
 export default function(colorscheme) {
+  colorscheme = colorscheme || require('../globals/colors').default
   const { gray, font, secondary, white } = colorscheme
-
   return StyleSheet.create({
     wrapper: {
       margin: '7px 15px',

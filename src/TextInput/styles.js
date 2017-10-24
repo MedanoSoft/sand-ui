@@ -31,6 +31,7 @@ function inputGenerator (color, otherStyles = {}) {
 }
 
 export default function (colorscheme) {
+  colorscheme = colorscheme || require('../globals/colors').default
   const { gray, lightGray, secondary, font, green, red } = colorscheme
   return StyleSheet.create({
     active: inputGenerator(gray, {

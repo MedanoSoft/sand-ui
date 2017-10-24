@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
-
 import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
+/**
+ * Horizontal light bar for showing progress.
+ */
 class ProgressBar extends Component {
   constructor (props, context) {
     super(props)
@@ -26,8 +27,18 @@ class ProgressBar extends Component {
 }
 
 ProgressBar.propTypes = {
+  /**
+   * Percent of progress
+   */
   percent: PropTypes.number,
-  type: PropTypes.string
+  /**
+   * 	Progress bar colorscheme
+   */
+  type: PropTypes.string,
+  /**
+   * Custom styles to add
+   */
+  style: PropTypes.object
 }
 
 ProgressBar.defaultProps = {

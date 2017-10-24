@@ -10,6 +10,7 @@ function progressBarGenerator (color) {
 }
 
 export default function (colorscheme) {
+	colorscheme = colorscheme || require('../globals/colors').default
 	const {
 		lightGray,
 		secondary,

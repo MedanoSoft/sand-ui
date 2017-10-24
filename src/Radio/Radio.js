@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
-
 import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
+/**
+ * Radio buttons with labels
+ */
 class Radio extends Component {
   constructor (props, context) {
     super(props)
@@ -45,10 +46,26 @@ class Radio extends Component {
 }
 
 Radio.propTypes = {
+  /**
+   * Value for radio button
+   */
   value: PropTypes.string.isRequired,
+  /**
+   * Name of radio group
+   */
   name: PropTypes.string.isRequired,
+  /**
+   * Select this radio
+   */
   checked: PropTypes.bool,
-  onChange: PropTypes.func
+  /**
+   * Called when radio change it's state
+   */
+  onChange: PropTypes.func,
+  /**
+   * Disable button interaction
+   */
+  disabled: PropTypes.bool
 }
 
 Radio.defaultProps = {

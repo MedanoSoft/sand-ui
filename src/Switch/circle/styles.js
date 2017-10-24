@@ -18,6 +18,7 @@ function ballGenerator (color, otherStyles = {}) {
 }
 
 export default function (colorscheme) {
+  colorscheme = colorscheme || require('../../globals/colors').default
   const { primary, secondary, gray, lightGray, white } = colorscheme
 
   return StyleSheet.create({

@@ -2,6 +2,7 @@ import { StyleSheet } from 'aphrodite/no-important'
 
 
 export default function(colorscheme) {
+  colorscheme = colorscheme || require('../globals/colors').default
   const { secondary, white, gray } = colorscheme
   return StyleSheet.create({
     container: {

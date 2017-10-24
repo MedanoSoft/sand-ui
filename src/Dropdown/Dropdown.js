@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
+import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
-import { css } from 'aphrodite/no-important'
-
+/**
+ * List of items like a list-menu, Dropdown is not the same as Select component.
+ */
 class Dropdown extends Component {
   constructor (props, context) {
     super(props)
@@ -58,7 +59,13 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
+  /**
+   * List of items to show
+   */
   list: PropTypes.array.isRequired,
+  /**
+   * Label for flag button
+   */
   label: PropTypes.string
 }
 
