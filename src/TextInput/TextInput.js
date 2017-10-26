@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
-
 import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
-
 import Icon from '../Icon'
 
+/**
+ * Simple styled text input. Available for any text-like input if you describe it as type prop.
+ */
 class TextInput extends Component {
   constructor (props, context) {
     super(props)
@@ -48,13 +48,40 @@ class TextInput extends Component {
 }
 
 TextInput.propTypes = {
-  type: PropTypes.string,
-  className: PropTypes.string,
+  /**
+   * Type of input
+   */
+  type: PropTypes.oneOf([
+    'text',
+    'number',
+    'email',
+    'password',
+    'date'
+  ]),
+  /**
+   * Change input color depending on type
+   */
+  className: PropTypes.oneOf([
+    'active',
+    'success',
+    'error',
+    'disabled'
+  ]),
+  /**
+   * Disable input interaction
+   */
   disabled: PropTypes.bool,
+  /**
+   * Insert an icon at the left, or the element you desire to
+   */
   icon: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.element
-  ])
+  ]),
+  /**
+   * Custom styles to add
+   */
+  style: PropTypes.object
 }
 
 TextInput.defaultProps = {

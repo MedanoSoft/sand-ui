@@ -8,6 +8,9 @@ import { css } from 'aphrodite/no-important'
 
 import uidCreator from '../utils/uid'
 
+/**
+ * For multiple input strings, Tags component!
+ */
 class Tags extends Component {
   constructor (props, context) {
     super(props)
@@ -95,8 +98,17 @@ class Tags extends Component {
 }
 
 Tags.propTypes = {
+  /**
+   * Stack of strings as values from user input
+   */
   values: PropTypes.array,
+  /**
+   * List of possible values, or datalist
+   */
   list: PropTypes.array,
+  /**
+   * Action when values had changed
+   */
   onUpdate: PropTypes.func
 }
 

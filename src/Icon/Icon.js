@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
-
 import { css } from 'aphrodite/no-important'
 
 import icons from './icons'
-
 import styleGenerator from './styles'
-
 
 class Icon extends Component {
   constructor () {
@@ -33,7 +29,7 @@ class Icon extends Component {
       green,
       yellow,
       red
-    } = this.context.colors
+    } = this.context.colors || require('../globals/colors').default
 
     switch (color) {
       case 'active':
@@ -76,8 +72,30 @@ class Icon extends Component {
 }
 
 Icon.propTypes = {
+  /**
+   * Icon name from Linearicons
+   */
   name: PropTypes.string.isRequired,
-  color: PropTypes.string
+  /**
+   * Color of the icon
+   */
+  color: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.oneOf([
+      'active', 
+      'info',
+      'inverse',
+      'success',
+      'warning',
+      'danger',
+      'disabled',
+      'error'
+    ])
+  ]),
+  /**
+   * Define icon width
+   */
+  size: PropTypes.string,
 }
 
 Icon.defaultProps = {

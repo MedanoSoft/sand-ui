@@ -7,7 +7,7 @@ import { css } from 'aphrodite/no-important'
 import styleGenerator from './styles'
 
 /**
- * Just like any button, excepting you can pass a link to it
+ * Just like any button, excepting you can pass a link to it.
  */
 class Button extends Component {
   constructor (props, context) {

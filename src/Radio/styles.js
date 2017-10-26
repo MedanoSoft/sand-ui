@@ -32,6 +32,7 @@ function radioGenerator (backgroundColor, otherStyles = {}) {
 }
 
 export default function(colorscheme) {
+  colorscheme = colorscheme || require('../globals/colors').default
   const { gray, font, secondary } = colorscheme
   return StyleSheet.create({
     wrapper: {

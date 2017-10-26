@@ -6,6 +6,9 @@ import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
+/**
+ * This is a stylished form of `<input type="range" />` see MDN documentation about.
+ */
 class Slider extends Component {
   constructor (props, context) {
     super(props)
@@ -41,8 +44,18 @@ class Slider extends Component {
 }
 
 Slider.propTypes = {
+  /**
+   * Range separation
+   */
   step: PropTypes.number,
-  onChange: PropTypes.func
+  /**
+   * Called when slider change it's state
+   */
+  onChange: PropTypes.func,
+  /**
+   * Custom styles to add
+   */
+  style: PropTypes.object
 }
 
 Slider.defaultProps = {

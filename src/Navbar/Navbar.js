@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-
 import PropTypes from 'prop-types'
-
 import { css } from 'aphrodite/no-important'
 
 import styleGenerator from './styles'
 
+/**
+ * Simple, horizontal nav component with searchbar
+ */
 class Navbar extends Component {
   constructor (props, context) {
     super(props)
@@ -43,18 +44,41 @@ class Navbar extends Component {
 }
 
 Navbar.propTypes = {
+  /**
+   * Navbar header
+   */
   title: PropTypes.node,
+  /**
+   * Element at the middle
+   */
   middle: PropTypes.node,
+  /**
+   * Element at the right
+   */
   right: PropTypes.node,
+  /**
+   * Add a searchbar on the nav (default: `false`)
+   */
   searchbar: PropTypes.bool,
+  /**
+   * Called when user puts a line break (User hits Intro)
+   */
   onSearch: PropTypes.func,
-  placeholder: PropTypes.string
+  /**
+   * Placeholder for insert in searchbar
+   */
+  placeholder: PropTypes.string,
+  /**
+   * Custom styles to add
+   */
+  style: PropTypes.object
 }
 
 Navbar.defaultProps = {
   onSearch: () => {},
   searchbar: false,
-  placeholder: 'Search'
+  placeholder: 'Search',
+  style: {}
 }
 
 Navbar.contextTypes = {
