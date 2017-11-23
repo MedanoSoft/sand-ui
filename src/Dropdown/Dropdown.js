@@ -12,7 +12,7 @@ class Dropdown extends Component {
     super(props)
 
     this.state = {
-      toggleList: (props.hasOwnProperty('visible')) ? props.visible : false
+      toggleList: props.visible
     }
 
     this.stylesheet = styleGenerator(context.colors)
@@ -34,7 +34,7 @@ class Dropdown extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    if (nextProps.hasOwnProperty('visible')) {
+    if (nextProps.visible !== state.toggleList) {
       this.setState({ toggleList: nextProps.visible })
     }
   }
@@ -87,7 +87,8 @@ Dropdown.propTypes = {
 }
 
 Dropdown.defaultProps = {
-  list: []
+  list: [],
+  visible: false
 }
 
 Dropdown.contextTypes = {
