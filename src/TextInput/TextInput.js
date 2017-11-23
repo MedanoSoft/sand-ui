@@ -56,7 +56,8 @@ TextInput.propTypes = {
     'number',
     'email',
     'password',
-    'date'
+    'date',
+    'search'
   ]),
   /**
    * Change input color depending on type

@@ -79,7 +79,7 @@ Dropdown.propTypes = {
   /**
    * Toggle list
    */
-  visible: PropTypes.boolean,
+  visible: PropTypes.bool,
   /**
    * Custom styles for flag button
    */

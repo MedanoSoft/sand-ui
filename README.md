@@ -522,7 +522,7 @@ class InputExample extends React.Component {
 
 | Props     | Type      | Description             |
 | --------- | --------- | ----------------------- |
-| type      | String    | Type of input, the default is `text`. Suggested: `text`, `number`, `email`, `password`, `date` |
+| type      | String    | Type of input, the default is `text`. Available: `text`, `number`, `email`, `password`, `date`, `search` |
 | className | String    | Change input color depending on type. Available: `active` (default), `success`, `error`, `disabled` |
 | icon      | String or Element | Insert an icon at the left, or the element you desire to |
 | disabled  | Boolean   | Disable input interaction |
