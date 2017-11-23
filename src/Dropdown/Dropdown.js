@@ -35,7 +35,7 @@ class Dropdown extends Component {
 
   componentWillReceiveProps (nextProps) {
     if (nextProps.hasOwnProperty('visible')) {
-      this.setState({ visible: nextProps.visible })
+      this.setState({ toggleList: nextProps.visible })
     }
   }
 
