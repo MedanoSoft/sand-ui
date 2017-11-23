@@ -12,7 +12,7 @@ class Dropdown extends Component {
     super(props)
 
     this.state = {
-      toggleList: false
+      toggleList: (props.hasOwnProperty('visible')) ? props.visible : false
     }
 
     this.stylesheet = styleGenerator(context.colors)
@@ -26,11 +26,17 @@ class Dropdown extends Component {
     return list.map((node, i) => (
       <li key={i} className={css(this.stylesheet.item)}>
         {(typeof node === typeof {})
-					? (<a {...node.props} className={css(this.stylesheet.text)} href={node.link || '#'}>{node.name}</a>)
-					: (<span key={i} className={css(this.stylesheet.text)}>{node}</span>)
-				}
+          ? (<a {...node.props} className={css(this.stylesheet.text)} href={node.link || '#'}>{node.name}</a>)
+          : (<span key={i} className={css(this.stylesheet.text)}>{node}</span>)
+        }
       </li>
-			))
+      ))
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.hasOwnProperty('visible')) {
+      this.setState({ visible: nextProps.visible })
+    }
   }
 
   handleClick () {
@@ -40,16 +46,19 @@ class Dropdown extends Component {
   }
 
   render () {
-  	const { label } = this.props
-  	const { toggleList } = this.state
-  	const passedProps = {
-    ...this.props
-  }
+    const { label } = this.props
+    const { toggleList } = this.state
+    const passedProps = {
+      ...this.props
+    }
     delete (passedProps.label)
     delete (passedProps.list)
+    delete (passedProps.visible)
+    delete (passedProps.buttonStyle)
+
     return (
       <div className={css(this.stylesheet.wrapper)}>
-        <button className={css(this.stylesheet.caption)} onClick={this.handleClick}>{label}</button>
+        <button style={this.props.buttonStyle} className={css(this.stylesheet.caption)} onClick={this.handleClick}>{label}</button>
         <ul {...passedProps} className={css((toggleList) ? this.stylesheet.listVisible : this.stylesheet.listInvisible)}>
           {this.setList()}
         </ul>
@@ -66,7 +75,15 @@ Dropdown.propTypes = {
   /**
    * Label for flag button
    */
-  label: PropTypes.string
+  label: PropTypes.string,
+  /**
+   * Toggle list
+   */
+  visible: PropTypes.boolean,
+  /**
+   * Custom styles for flag button
+   */
+  buttonStyle: PropTypes.object
 }
 
 Dropdown.defaultProps = {

@@ -185,10 +185,12 @@ class DropdownExample extends React.Component {
 }
 ```
 
-| Props     | Type      | Description             |
-| --------- | --------- | ----------------------- |
-| label     | String    | Label for flag button   |
-| list      | Array     | List of items to show   |
+| Props       | Type      | Description               |
+| ----------- | --------- | ------------------------- |
+| label       | String    | Label for flag button     |
+| list        | Array     | List of items to show     |
+| visible     | Boolean   | Toggle list               |
+| buttonStyle | Object    | Custom styles for flag button  |
 
 
 ### Icon
